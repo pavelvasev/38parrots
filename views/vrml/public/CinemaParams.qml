@@ -55,6 +55,7 @@ GroupBox {
         property var val: values[ value ]
         //Component.onCompleted: console.log("cinema param completed",text );
         property bool animationPriority: true
+        enableSliding: false
       }
     }
   }

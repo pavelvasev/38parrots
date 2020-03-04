@@ -15,19 +15,25 @@ Item {
     //property var file    // входной файл
     property var output  // загруженные данные
     property bool enabled: true
-    property bool loading: false
+    property var loading: false
 
     signal loaded( string loadedFile, string loadedOutput );
     
-    property var q: {
+    
+    onFileChanged: go();
+    onEnabledChanged: go();
+    function go() {
       if (!file || !enabled) {
         output = "";
         return;
       }
+      if (loading) {
+        console.log("TextLoader2: stopping current loading");
+        loading.stoploading();
+      }
       var f = file;
-      loading = true;
       console.time( f ); // todo сделать такую штуку измерение вычислений.. для всех компонент.. интерфейс - инпуты изменились - засекаем
-      loadFile( f, function(res) {
+      loading = loadFile( f, function(res) {
         //debugger;
         console.timeEnd( f );
         output = res;
@@ -40,12 +46,13 @@ Item {
         output = res;
         loading = false;
         loaded( f,res );
-
-      } ); 
+     } ); 
     }
     
     
 ///////////// patch
+// собственно добавлены вызовы file_on/off
+// надо бы это перетащить во viewlang
 
 function file_on() {
   setTimeout( function() {
@@ -103,6 +110,7 @@ function loadFileBase( file_or_path, istext, handler, errhandler ) {
 
         var result = {};
         result.abort = function() { reader.abort(); setFileProgress( file_or_path.name ); file_off(); }
+        result.stoploading = function() { reader.abort(); setFileProgress( file_or_path.name ); file_off(); }
         return result;
     }
     else
@@ -171,6 +179,7 @@ function loadFileBase( file_or_path, istext, handler, errhandler ) {
 
             var result = {};
             result.abort = function() { xhr.abort(); setFileProgress( file_or_path ); file_off(); }
+            result.stoploading = function() { xhr.abort(); setFileProgress( file_or_path ); file_off(); }
             return result;
 
                 /* ранее вызывали по jquery так. но еще нужен был для arraybuffer
