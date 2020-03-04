@@ -71,21 +71,26 @@ GroupBox {
     var cc=id.children.filter( function(i) { return i.$properties['val'] ? true : false; })
     cc.forEach( function(i) { res[ i.text ] = i.val } );
     return res;
-  }  
+  }
   
   // возвращает массив значений, соответствующих i-му параметру при условии текущих выбранных параметров current_values (анализируются 0..i-ый)
   function find_possible_values( i, current_values, datadict ) {
-    //debugger;
+
     var cur = datadict;
     for (var u=0; u<i; u++) {
       if (!cur) return [];
       var i_param_value = current_values[ u ];
-      cur = cur[ i_param_value ];
+      cur = cur.get( i_param_value );
     }
     if (!cur) return []; // тут должны были быть артефакты но - чето нету
     if (Array.isArray( cur )) return cur; // это значит уже - артефакты (ну должны быть)
     // теперь cur это dict для нашего текущего параметра
-    var param_values = Object.keys(cur).sort();
+    // object.keys дает строки - это нам не подходит
+    //var param_values = Object.keys(cur).sort();
+    var param_values = Array.from( cur.keys() ).sort( function (a, b) {  return a - b;  } );
+    // о ты чудный мир. объекты у нас работают с ключами-только-строками, но зато есть map,
+    // но зато в array sort сравнение по умолчанию как у строк. о ее
+
     return param_values;
   }
 
@@ -102,19 +107,19 @@ GroupBox {
     
     var val = line_of_values[i];
     
-    if (subdict.hasOwnProperty( val )) { // значение уже есть в нашем словаре - перейдем к нему и попросим добавить суб-значения в суб-словарь
-      add_to_dict( line_of_values, i+1, artefact_start_index, subdict[val] );
+    if (subdict.has( val )) { // значение уже есть в нашем словаре - перейдем к нему и попросим добавить суб-значения в суб-словарь
+      add_to_dict( line_of_values, i+1, artefact_start_index, subdict.get(val) );
     }
     else
     {  // значений еще нет - создадим новую запись и перейдем заполнению суб-словаря
-      subdict[val] = add_to_dict( line_of_values,i+1, artefact_start_index, new Object() );
+      subdict.set( val, add_to_dict( line_of_values,i+1, artefact_start_index, new Map() ) );
     }
     return subdict;
   }
   
   function create_dict( csv ) {
     var param_names = filter_p( csv.colnames );
-    var dict = new Object();
+    var dict = new Map();
     if (param_names.length == 0 || param_names[0].length == 0) {
        console.log("CinemaParams::create_dict: param_names is blank, probably csv is not loaded yet" );
        return dict;

@@ -198,7 +198,7 @@ GroupBox {
   
   /////////////////
   function getClipRangeFromThreeJs() {
-    console.log("getcliprangefrom3");
+    // console.log("getcliprangefrom3");
     var r = 1000;
     for (var i=0; i<scene.children.length; i++) {
       var c = scene.children[i];
