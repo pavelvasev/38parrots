@@ -346,6 +346,15 @@ Scene2 {
       
       var res= artefacts_arr.map( function(item) { return fix1(item) });
       console.log("res=",res);
+      
+      /*
+      // кряк
+      setTimeout( function() {
+        output=res;
+      }, 5 );
+      return output;
+      */
+      
       return res;
     }
 }

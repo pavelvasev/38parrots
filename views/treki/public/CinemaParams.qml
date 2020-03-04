@@ -5,7 +5,6 @@
   2. Выдать перечень артефактов для загрузки:
      2.1 имена колонок
      2.2 значения из колонок артефактов
-  
 */
 
 GroupBox {
@@ -71,7 +70,7 @@ GroupBox {
     var cc=id.children.filter( function(i) { return i.$properties['val'] ? true : false; })
     cc.forEach( function(i) { res[ i.text ] = i.val } );
     return res;
-  }  
+  }
   
   // возвращает массив значений, соответствующих i-му параметру при условии текущих выбранных параметров current_values (анализируются 0..i-ый)
   function find_possible_values( i, current_values, datadict ) {
@@ -80,14 +79,16 @@ GroupBox {
     for (var u=0; u<i; u++) {
       if (!cur) return [];
       var i_param_value = current_values[ u ];
-      cur = cur[ i_param_value ];
+      cur = cur.get( i_param_value );
     }
     if (!cur) return []; // тут должны были быть артефакты но - чето нету
     if (Array.isArray( cur )) return cur; // это значит уже - артефакты (ну должны быть)
     // теперь cur это dict для нашего текущего параметра
     // object.keys дает строки - это нам не подходит
     //var param_values = Object.keys(cur).sort();
-    var param_values = Array.from( cur.keys() ).sort();
+    var param_values = Array.from( cur.keys() ).sort( function (a, b) {  return a - b;  } );
+    // о ты чудный мир. объекты у нас работают с ключами-только-строками, но зато есть map,
+    // но зато в array sort сравнение по умолчанию как у строк. о ее
 
     return param_values;
   }
