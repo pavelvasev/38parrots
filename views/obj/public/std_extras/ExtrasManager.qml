@@ -198,6 +198,7 @@ GroupBox {
   
   /////////////////
   function getClipRangeFromThreeJs() {
+    console.log("getcliprangefrom3");
     var r = 1000;
     for (var i=0; i<scene.children.length; i++) {
       var c = scene.children[i];
@@ -213,10 +214,13 @@ GroupBox {
   
   Timer {
     interval: 5000
-    running: true
+    //running: true
     repeat: true
     onTriggered: sc.cliprange = getClipRangeFromThreeJs()
+    id: timer
   }
+  Component.onCompleted: timer.start();
+  // по некоей загадочной причине их надо пнуть вручную, по крайней мере если это загружается через loader
   
   //////
   function typeToScopeName( rec ) {
