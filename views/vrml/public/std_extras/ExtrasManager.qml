@@ -213,7 +213,7 @@ GroupBox {
   }
   
   Timer {
-    interval: 5000
+    interval: 500 // было раз в 5 секунд - это долго. ладно уж, пусть пока крутится, это вроде не сложный обход
     //running: true
     repeat: true
     onTriggered: sc.cliprange = getClipRangeFromThreeJs()
