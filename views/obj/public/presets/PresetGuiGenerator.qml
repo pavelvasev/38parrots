@@ -1,6 +1,11 @@
+// Предназначение - по заданному списку групп-и-пресетов построить гуи для их вызова
 Item {
   id: gen
   property var input: new Object();
+  
+    // массив вида
+    // [{ title: имя категории, variants: [....]}]
+    // где каждый вариант это: {значения-параметров}
   
   onInputChanged: {
     console.log("PresetGuiGenerator input changed:",input );
@@ -8,49 +13,30 @@ Item {
       findRootScene( gen ).refineSelf();
     } );
   }
+
+  property var cats: input
   
-  function parse( inp ) {
-    var records = Object.keys( inp );
-    var hcats = {};
-    records.forEach( function(name) {
-      var parts = name.split("/");
-      var catname = parts [0];
-      var itemname = parts [1] || parts[0];
-      
-      var title = inp[name].title || itemname;
-      if (!hcats[ catname ]) hcats[catname] = [];
-      hcats[catname].push( { title : title, params: inp[name] } );
-      
-      /*var k = Object.assign({}, inp[ name ] );
-      if (!k.title) k.title = itemname;
-      
-      if (!hcats[ catname ]) hcats[catname] = [];
-      hcats[catname].push( k );
-      */
-    });
+  Flow {
+    property var tag: "top"
+    width: Math.min( totalChildrenWidth()+50, findRootScene( gen ).width - 50 )
     
-    var catnames = Object.keys( hcats );
-    var res = [];
-    catnames.forEach( function(catname) {
-      res.push( {title: catname, variants: hcats[catname]} );
-    } )
+    spacing: 5
     
-    console.log("PresetGuiGenerator: parsed to res",res);
-    console.log("btw hcats=",hcats );
-    return res;
-    // итого это теперь это массив вида
-    // [{ title: имя категории, variants: [....]}]
-    // где каждый вариант это: массив вида:
-    //   [ {title: имя варианта, params: {значения-параметров} ]
-  }
-  
-  property var cats: parse( input )
+    function totalChildrenWidth() {
+      var acc=0;
+      for (var i = 0; i < this.children.length; i++) {
+        var child = this.children[i];
+        if (child.width)
+          acc = acc + child.width;
+      }
+      return acc;
+    }
   
   Repeater {
     model: cats.length
     Row {
-      spacing: 2
-      property var tag: "top"
+      spacing: 3
+      
       property var cat: cats[index]
       Text {
         text: cat.title
@@ -67,9 +53,15 @@ Item {
     }
   }
   
+  }
+  
   function perform( variant_record ) {
     console.log("PresetGuiGenerator: user click preset variant: ",variant_record );
+    
     var newparams = variant_record.params;
+    // var newparams = variant_record.params; // это сокращенный вариант
+    
+    delete newparams['title'];
     var obj = hasher.read_hash_obj();
     if (!obj.params)
       obj.params = newparams;

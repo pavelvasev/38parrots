@@ -48,7 +48,7 @@ Scene2 {
         text: "dubins_-1_m_l_0_3pi_scaled_3.5"
         onClicked: afile.values = [Qt.resolvedUrl( text+".obj" )]
       }
-      
+    
     }
     
     CreativePoints {

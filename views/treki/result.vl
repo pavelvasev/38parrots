@@ -66,7 +66,7 @@ Scene2 {
         property var input_0: filterbynum_9.output /* by qml-xtract.cm2 */
         property var input_1: filterbynum_11.output /* by qml-xtract.cm2 */
         property var input_2: filterbynum_13.output /* by qml-xtract.cm2 */
-        radius: 0.25
+        radius: 1.25
         positions: combine_arrays( input_0, input_1, input_2 )
         text: scene_obj.text+' - точки'
         shader: [final_extras_arr]

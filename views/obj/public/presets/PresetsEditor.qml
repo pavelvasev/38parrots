@@ -82,9 +82,20 @@ Item {
   function addcurrent() {
     
     var obj = hasher.read_hash_obj();
-    delete obj['params']['presets'];
-    //var txt = JSON.stringify( obj, null, '\t');
+    if (obj && obj.params) delete obj['params']['presets'];
+    //var txt = JSON.stringify( [obj], null, '\t');
+    
+    // это сокращенный слегка вариант, для человека якобы
+    //obj = Object.assign( {title:"Название варианта"}, obj.params || {} )
+    //obj = [ {title: "Группа", variants: [obj]} ]
+    
+    // это правильное 1 к 1, но сносит мозг
+    obj = { __title: "Название варианта", params: obj.params }
+    obj = [ {title: "Группа", variants: [obj]} ]
+    
     var txt = yparser.generate_yaml( obj, true );
+    // txt = "- " + txt; // вот это трююк
+    txt = txt.replace("__title","title");
     
     //tep.textInput.accepted();
     console.log("adding. curvalue=",tep.value,"and new is ",txt );
