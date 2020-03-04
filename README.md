@@ -2,7 +2,7 @@
 
 web-based 3d visualization tool using cinemascience data files
 
-![38](other/udav-iz-multfilma-38-popugaev.jpg)
+![38](doc/udav-iz-multfilma-38-popugaev.jpg)
 
 # Usage and Examples
 
