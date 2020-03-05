@@ -57,7 +57,16 @@ Item {
   ParamUrlHashing {
     name: globalName
     id: hasher
+    //здесь это уже бесполезно - тут присылают объект propertyWrite: "valueurlencoded"
   }
+
+/*  property var valueurlencoded
+  onValueurlencodedChanged: {
+    var s = decodeURIComponent( valueurlencoded );
+    console.log("WE GOT encoded value=",valueurlencoded,"and decoded it:",s)
+    value = s;
+  }
+*/  
 
   property var globalName: scopeNameCalc.globalName
   property var globalText: scopeNameCalc.globalText

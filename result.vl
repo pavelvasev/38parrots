@@ -164,6 +164,8 @@ Scene2 {
         input_1: []
     }
     
+    sceneconf: '{"params":{"show_axes":1}}'
+    
     ///////////////// functions!
     
     function func_find_datacsv (arr) {

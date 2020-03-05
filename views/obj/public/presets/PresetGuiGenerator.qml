@@ -39,14 +39,14 @@ Item {
       
       property var cat: cats[index]
       Text {
-        text: cat.title
+        text: cat.title || String(index)
         y: 2
       }
       Repeater {
         model: cat.variants.length
         
         Button {
-          text: cat.variants[index].title
+          text: cat.variants[index].title || String(index)
           onClicked: perform( cat.variants[index] )
         }
       }
