@@ -48,6 +48,8 @@ T,alfa,FILE_points_1, FILE_points_2
 * [Простые примеры](https://github.com/pavelvasev/38parrots/tree/master/examples)
 * [Множество достижимости растущее во времени](http://viewlang.ru/dubins/data/1-mnojestva/data.csv)
 * [Множество достижимости растущее во времени и дополнительные треки точек](http://viewlang.ru/dubins/data/2-symm-1pi-4pi/data.csv)
+* [Множество достижимости растущее во времени,треки точек, и набор точек для текущего времени](http://viewlang.ru/dubins/data/2-symm-1pi-4pi-cur/data.csv)
+
 
 ## Запуск программы
 
