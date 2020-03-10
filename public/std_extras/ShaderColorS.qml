@@ -3,6 +3,9 @@ Shader {
   
   property var os: "x"
   property var titl: "X"
+  //onTitlChanged: console.log("tc title=",titl )
+  
+  property var title: "Подкраска сечений "+titl
   
   property var input_0: cliprange // опирается получается на кого-то сверху, ибо у нас биндинги недоделанные в Loader
   
@@ -26,9 +29,11 @@ Shader {
   
   property var pcoefstep: pcoef > 1000 ? 10 : (pcoef > 100 ? 1 : 0.1)
   
+  function nbsp(text) { return text.replace( / /g,"&nbsp;"); }
+  
   GroupBox {
   
-    title: "Подкраска сечений "+titl
+    title: shader1.title
     property var tag: "right"
     
     Column {

@@ -21,8 +21,11 @@ GroupBox {
 //    html: "<style> fieldset legend { color: #fff; } /*checkbox:*/ .ShaderConfig { color: #ddd; } /*params text*/  .ShaderConfig .Text span { color: #777 !important; }</style>"
 //  }
   
-
-  property var ztitle: "Z"
+  property var axnames: findRootScene( sc ).axes.titles
+  property var xtitle: axnames[0]
+  property var ytitle: axnames[1]  
+  property var ztitle: axnames[2]  
+  //property var ztitle: "Z"
   
   // таким образом добавки можно добавлять через input_1
   property var input_1: []
@@ -32,15 +35,15 @@ GroupBox {
   
   property var mytypes: [
     ["Отсечение "+ztitle,"ShaderClip?z", { os: "z", titl: ztitle }],
-    ["Отсечение X","ShaderClip?x", { os: "x", titl: "X" }],
-    ["Отсечение Y","ShaderClip?y", { os: "y", titl: "Y" }],
+    ["Отсечение "+xtitle,"ShaderClip?x", { os: "x", titl: xtitle }],
+    ["Отсечение "+ytitle,"ShaderClip?y", { os: "y", titl: ytitle }],
     ["Масштабы<br/><br/>","ShaderScale"],
     ["Серия "+ztitle,"ShaderClipS?z", { os: "z", titl: ztitle }],
-    ["Серия X","ShaderClipS?x", { os: "x", titl: "X" }],
-    ["Серия Y","ShaderClipS?y", { os: "y", titl: "Y" }],
+    ["Серия "+xtitle,"ShaderClipS?x", { os: "x", titl: xtitle }],
+    ["Серия "+ytitle,"ShaderClipS?y", { os: "y", titl: ytitle }],
     ["Подкраска сечений "+ztitle,"ShaderColorS?z", { os: "z", titl: ztitle }],
-    ["Подкраска сечений X","ShaderColorS?x", { os: "x", titl: "X" }],
-    ["Подкраска сечений Y<br/><br/>","ShaderColorS?y", { os: "y", titl: "Y" }],
+    ["Подкраска сечений "+xtitle,"ShaderColorS?x", { os: "x", titl: xtitle }],
+    ["Подкраска сечений "+ytitle+"<br/><br/>","ShaderColorS?y", { os: "y", titl: ytitle }],
     
     ["Убрать черный","ShaderBlack", { }],
     ["Накоплять фон","FeatureKeepBkg", { }],
@@ -48,6 +51,7 @@ GroupBox {
     ["Автомасштаб","AutoScale", { tag: "left" }],
     ["Камера: взгляд","CameraLook", { tag: "left" }],
     ["Камера: поворот","CameraRotate", { tag: "left" }],
+    ["Имена осей","AxesNames", { tag: "other" }],
     ["Пользовательский","ShaderUser", { titl: "1" }]
   ]
 
@@ -69,6 +73,7 @@ GroupBox {
         model: types.length
         
         CheckBoxParam {
+          width: 200
           text: types[index][0]
           //guid: types[index][1]
           //guid: "selectshader_"+index
@@ -142,12 +147,7 @@ GroupBox {
       property var scopeName: typeToScopeName(types[ index ]) // жили они не тужили в своем скопе
       property var enableScopeDuplicated: true
       onItemChanged: {
-      /*
-        if (item) {
-           item.scopeName = typeToScopeName(types[ index ]); // выставить scope этому чуду
-           item.enableScopeDuplicated = true;
-        }
-      */
+        //console.log("thus item changed",item );
         rescanitems(0)
         //scene.refineSelf();
         if (item && item.tag != sc.tag) {
@@ -159,19 +159,34 @@ GroupBox {
         else
           ldr.visible = true;
         qmlEngine.rootObject.refineSelf()
-
+        
+        if (item) init( item ) 
+        // причем этот init уже вызывается ранее лоадером итак
+        // но нам надо передать ему заголовки, в противном случае пропуск получается
       }
       onInit: {
+        //console.log(" ~~~ init")
         var opts = types[ index ][2] || {};
         for (k in opts) {
           //obj[k] = Qt.binding( function() { return opts[k]; } )
           obj[k] = opts[k];
         }
+        obj.title = ldr.title
       }
+      property var mparams: types[ index ][2] || {}
+      onMparamsChanged: {
+        //console.log(" * * * mparams",mparams, "item=", item );
+        if (item) init( item )
+      }
+      
+      // решил я отдельно title генерировать для них пересылать
+      property var title: nbsp( types[ index ][0] )
+      onTitleChanged: if (item) item.title = title
+      function nbsp(text) { return text.replace( / /g,"&nbsp;"); }
     }
   }
   }
-  
+
   function rescanitems(t) {
     //setTimeout( realrescanitems, t );
     realrescanitems(); // короче реальное моргание тут отрубается
@@ -227,4 +242,39 @@ GroupBox {
     return rec[1].replace(/[\W]+/g,"_"); // не буква не цифра
   }
   
+  
+  //////////////////////////////////////
+  
+  
+  property var otherArr: {
+    console.log("filtering others... input=",output );
+    var res = output.filter( function(item) { return item.tag == "other" } );
+    console.log("res=",res);
+    return res;
+  }
+  //  нам как бы нужно одно разное на всех..
+  GroupBox {
+    id: other
+    property var tag: "left"
+    title: "Разное " //+otherArr.length
+    //parent: qmlEngine.rootObject
+    visible: otherArr.length > 0
+    
+    Component.onCompleted: {
+      parent = qmlEngine.rootObject
+    }
+    Column {
+      id: otherco
+      
+      Repeater {
+        model: otherArr.length
+        Button {
+          property var item: otherArr[ index ]
+          text: item.title || "кнопка"
+          onClicked: item.open()
+        }
+      }
+    }
+  }
+
 }

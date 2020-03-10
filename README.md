@@ -6,7 +6,7 @@ web-based 3d visualization tool using cinemascience data files
 
 # Examples
 
-* [Reachable sets for Dubins car](http://tinyurl.com/tdo4o2u) - IMM UrB RAS, [V.S. Patsko, A.A. Fedotov](http://sector3.imm.uran.ru/index_eng.html)
+* [Reachable sets for Dubins car](http://tinyurl.com/w2bky2q) - IMM UrB RAS, [V.S. Patsko, A.A. Fedotov](http://sector3.imm.uran.ru/index_eng.html)
 * [Examples from examples dir](http://tinyurl.com/ufq97ta)
 * [Clean run](http://viewlang.ru/viewlang/code/scene.html?s=https://github.com/pavelvasev/38parrots/blob/master/result.vl)
 

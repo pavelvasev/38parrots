@@ -30,7 +30,8 @@ Item {
   // обратная функция.. решил сюда же запихать
   function generate_yaml( obj,sorting ) {
     if (Object.keys(obj).length == 0) return "";
-    var r = jsyaml.safeDump( obj, {'sortKeys' : sorting ? true : false} );
+    var r = jsyaml.safeDump( obj, {'sortKeys' : sorting ? true : false, 'lineWidth': 200} );
+    console.log("YamlParser: obj=",obj );
     console.log("YamlParser: generated txt=",r,typeof(r));
     //if (r == "{}") r = ""; // бред какой-то у них для пустых объектов
     return r;

@@ -9,3 +9,4 @@ ShaderColorS 1.0 ShaderColorS.qml
 AutoScale 1.0 AutoScale.qml
 CameraLook 1.0 CameraLook.qml
 CameraRotate 1.0 CameraRotate.qml
+AxesNames 1.0 AxesNames.qml
