@@ -7,7 +7,7 @@ GroupBox {
   
   property bool enabled: true
   
-  property var cliprange: 5000 // timer внизу
+  property var cliprange: 10 // timer внизу
   property var timevalue: 0
   
   property var scopeName: "extras"
@@ -50,8 +50,9 @@ GroupBox {
     
     ["Автомасштаб","AutoScale", { tag: "left" }],
     ["Камера: взгляд","CameraLook", { tag: "left" }],
-    ["Камера: поворот","CameraRotate", { tag: "left" }],
+    ["Камера: поворот","CameraRotate<br/><br/>", { tag: "left" }],
     ["Имена осей","AxesNames", { tag: "other" }],
+    ["Сохранить сцену","SaveScene", { tag: "other" }],
     ["Пользовательский","ShaderUser", { titl: "1" }]
   ]
 
@@ -215,8 +216,10 @@ GroupBox {
   function getClipRangeFromThreeJs() {
     // console.log("getcliprangefrom3");
     var r = 10; // minimum
+
     for (var i=0; i<scene.children.length; i++) {
       var c = scene.children[i];
+      if (c.qmlParent && c.qmlParent.iAxis) continue;
       //debugger;
       if (c.geometry && c.geometry.boundingSphere) {
         var s = c.geometry.boundingSphere;
@@ -265,6 +268,7 @@ GroupBox {
     }
     Column {
       id: otherco
+      padding: 2
       
       Repeater {
         model: otherArr.length

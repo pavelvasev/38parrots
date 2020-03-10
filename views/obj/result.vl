@@ -32,25 +32,6 @@ Scene2 {
         }
     }
     
-    Row {
-      property var tag: "top"
-      
-      spacing: 5
-      padding: 2
-      
-      Text { text: "Примеры:" }  
-      
-      Button {
-        text: "dubins_-05_m_l_0_pi_scaled_3.5"
-        onClicked: afile.values = [Qt.resolvedUrl( text+".obj" )]
-      }
-      Button {
-        text: "dubins_-1_m_l_0_3pi_scaled_3.5"
-        onClicked: afile.values = [Qt.resolvedUrl( text+".obj" )]
-      }
-    
-    }
-    
     CreativePoints {
         
         id: obj_0
@@ -233,6 +214,8 @@ Scene2 {
         title: scene_obj.isRoot ? 'Добавки' : scene_obj.text+'&nbsp;-&nbsp;Добавки'
         input_1: []
     }
+    
+    sceneconf: '{"params":{"cameraCenter":[-0.5447526706403544,-0.0801515077588314,0.8736028449724806],"cameraPos":[6.551260033485626,3.226836362021615,10.640426438365177],"extras/AutoScale/masshtab":0.7320508075688774,"extras/ShaderClipS_z/dolya":1,"extras/ShaderClipS_z/shag":3.8,"extras/onoff_AutoScale":1,"extras/onoff_ShaderClipS_z":1,"presets":[{"title":"Примеры","variants":[{"params":{"afile":["http://viewlang.ru/objs/v2/dubins_-05_m_l_0_pi_scaled_3.5.obj"]},"title":"dubins_-05_m_l_0_pi_scaled_3.5"},{"params":{"afile":["http://viewlang.ru/objs/v2/dubins_-1_m_l_0_3pi_scaled_3.5.obj"]},"title":"dubins_-1_m_l_0_3pi_scaled_3.5"},{"params":{"afile":["http://viewlang.ru/objs/v2/dubins_-1_m_l_0_3pi_scaled_3.5_reore.obj"]},"title":"dubins_-1_m_l_0_3pi_scaled_3.5_reore"}]}],"radius":0,"show_axes":0}}'
     
     ///////////////// functions!
     

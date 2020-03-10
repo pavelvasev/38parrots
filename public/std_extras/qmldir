@@ -10,3 +10,4 @@ AutoScale 1.0 AutoScale.qml
 CameraLook 1.0 CameraLook.qml
 CameraRotate 1.0 CameraRotate.qml
 AxesNames 1.0 AxesNames.qml
+SaveScene 1.0 SaveScene.qml
