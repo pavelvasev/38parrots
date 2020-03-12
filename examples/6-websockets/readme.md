@@ -1,7 +1,5 @@
 # Websocket example
 
-![](http://showtime.lact.in/files/visual/2020-03-12/2020-03-12-at-19-59-47.png | width=100)
-
 We are able to load artefacts from websocket servers. Example `data.csv` is:
 ```
 N,FILE_lines_fun
@@ -15,3 +13,5 @@ node fun-server.js
 ```
 
 See a radar rotating around.
+
+![](http://showtime.lact.in/resizer_st/fit/400/400/files/visual/2020-03-12/2020-03-12-at-19-59-47.png)
