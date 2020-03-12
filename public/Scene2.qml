@@ -40,18 +40,18 @@ Scene {
   }
 */  
 
-  property var sceneconf: undefined
-  
-  Component.onCompleted: {
-    if (window.location.hash.length < 10 && (sceneconf||"").length > 0) {
-      window.location.hash = "#"+sceneconf;
-    }
-  }
-
   PresetsManager {
     id: pm
     visible: scene_obj.isRoot
+    stateManager: psm
   }
   
   signal windowHashToParams();
+  signal setParamValues( object params );
+  
+  property alias stateManager: psm
+  StateManager {
+    id: psm
+  }
+  property var sceneconf: undefined
 }

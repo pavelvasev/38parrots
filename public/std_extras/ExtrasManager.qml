@@ -30,8 +30,9 @@ GroupBox {
   // таким образом добавки можно добавлять через input_1
   property var input_1: []
   property var input_api: []
+  property var input_api2: []
   
-  property var types: input_1.concat( mytypes ).concat( input_api )
+  property var types: input_1.concat( mytypes ).concat( input_api ).concat( input_api2 )
   
   property var mytypes: [
     ["Отсечение "+ztitle,"ShaderClip?z", { os: "z", titl: ztitle }],
@@ -50,9 +51,10 @@ GroupBox {
     
     ["Автомасштаб","AutoScale", { tag: "left" }],
     ["Камера: взгляд","CameraLook", { tag: "left" }],
-    ["Камера: поворот","CameraRotate<br/><br/>", { tag: "left" }],
+    ["Камера: поворот<br/><br/>","CameraRotate", { tag: "left" }],
     ["Имена осей","AxesNames", { tag: "other" }],
     ["Сохранить сцену","SaveScene", { tag: "other" }],
+    ["Внешние добавки","ExternalExtras", { tag: "other" }],
     ["Пользовательский","ShaderUser", { titl: "1" }]
   ]
 
@@ -96,7 +98,7 @@ GroupBox {
     for (var i=0; i<coco.children.length; i++)
        if (coco.children[i].guid && coco.children[i].value > 0) acc[ coco.children[i].typeIndex ] = 1;
     selectedshadermask = acc;
-    console.log("rescan",acc);
+    //console.log("rescan",acc);
     return acc;
   }
   
@@ -115,7 +117,7 @@ GroupBox {
     for (var i=0; i<coco.children.length; i++)
        if (coco.children[i].guid && coco.children[i].value > 0) acc.push( coco.children[i].typeIndex );
     selectedshaderlist = acc;
-    console.log("rescan",acc);
+    //console.log("rescan",acc);
     return acc;
   }  
  
@@ -172,7 +174,8 @@ GroupBox {
           //obj[k] = Qt.binding( function() { return opts[k]; } )
           obj[k] = opts[k];
         }
-        obj.title = ldr.title
+        obj.title = ldr.title;
+        obj.extrasManager = sc;
       }
       property var mparams: types[ index ][2] || {}
       onMparamsChanged: {
@@ -250,9 +253,9 @@ GroupBox {
   
   
   property var otherArr: {
-    console.log("filtering others... input=",output );
+    //console.log("filtering others... input=",output );
     var res = output.filter( function(item) { return item.tag == "other" } );
-    console.log("res=",res);
+    //console.log("res=",res);
     return res;
   }
   //  нам как бы нужно одно разное на всех..

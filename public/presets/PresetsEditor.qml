@@ -1,6 +1,8 @@
 // Предназначение - редактировать пресеты
 Item {
   id: itm
+  
+  property var stateManager
 
   Button {
     property var tag: "top"
@@ -25,7 +27,7 @@ Item {
        width: 700 //parent.width
        
        Button {
-         text: "Приписать текущие параметры"
+         text: "Добавить категорию"
          onClicked: itm.addcurrent();
          width: 250
        }
@@ -53,6 +55,7 @@ Item {
   
   // это собственно значение пресетов
   property var value: new Object({});
+  //onValueChanged: console.log("preseteditor value changed",value );
   
   ParamUrlHashing {
     name: globalName
@@ -81,36 +84,32 @@ Item {
     id: yparser
   }
   
-  /*  у нас уже есть  один
-  ParamUrlHashing {
-    enabled: false
-    manual: true
-    id: hasher
-  }*/
-  
   function addcurrent() {
-    
-    var obj = hasher.read_hash_obj();
-    if (obj && obj.params) delete obj['params']['presets'];
-    //var txt = JSON.stringify( [obj], null, '\t');
-    
-    // это сокращенный слегка вариант, для человека якобы
-    //obj = Object.assign( {title:"Название варианта"}, obj.params || {} )
-    //obj = [ {title: "Группа", variants: [obj]} ]
+    var obj = stateManager.getState();
+    obj = Object.assign( {}, obj ); // защитим копированием
+    delete obj['presets']; // от сиего удаления
     
     // это правильное 1 к 1, но сносит мозг
-    obj = { __title: "Название варианта", params: obj.params }
-    obj = [ {title: "Группа", variants: [obj]} ]
+    obj = { __title: "Название варианта", params: obj }
+    //obj = [ {title: "Смысл", variants: []} ] // [obj]
+    record = {}
+    record["category"+(new Date()).getTime()] = { title: "Смысл", variants: [obj]}
     
-    var txt = yparser.generate_yaml( obj, true );
-    // txt = "- " + txt; // вот это трююк
+    var txt = yparser.generate_yaml( record, true );
     txt = txt.replace("__title","title");
     
-    //tep.textInput.accepted();
     console.log("adding. curvalue=",tep.value,"and new is ",txt );
-    //tep.value = tep.value + "\n" + txt;
     tep.text = txt + "\n" + tep.text;
   }
+  
+  function addcateg() {
+    record = {}
+    record["category"+(new Date()).getTime()] = { title: "Смысл", variants: []}
+    
+    var txt = yparser.generate_yaml( record, true );
+    tep.text = txt + "\n" + tep.text;
+  }  
+
   
   property bool blocked: false
   function txt2value() {

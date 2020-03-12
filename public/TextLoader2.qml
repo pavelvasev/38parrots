@@ -23,14 +23,16 @@ Item {
     onFileChanged: go();
     onEnabledChanged: go();
     function go() {
-      if (!file || !enabled) {
-        output = "";
-        return;
-      }
+
       if (loading) {
         console.log("TextLoader2: stopping current loading");
         loading.stoploading();
+        loading = undefined;
       }
+      if (!file || !enabled) {
+        output = "";
+        return;
+      }      
       var f = file;
       console.time( f ); // todo сделать такую штуку измерение вычислений.. для всех компонент.. интерфейс - инпуты изменились - засекаем
       loading = loadFile( f, function(res) {

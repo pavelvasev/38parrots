@@ -6,3 +6,4 @@ CinemaViews 1.0 CinemaViews.qml
 ExtrasManager 1.0 std_extras/ExtrasManager.qml
 PresetsManager 1.0 presets/PresetsManager.qml
 DeferredCalc 1.0 DeferredCalc.qml
+StateManager 1.0 StateManager.qml

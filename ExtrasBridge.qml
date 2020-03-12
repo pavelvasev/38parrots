@@ -19,7 +19,7 @@ Item {
   }
   
   onMasterExtrasManagerChanged: {
-    masterExtrasManager.input_api = [ ["Послойные добавки", "EnableViewsExtras",{eb: eb}] ]
+    masterExtrasManager.input_api.push( ["Послойные добавки", "EnableViewsExtras",{eb: eb}] )
   }
   property bool enableAll: false
   onEnableAllChanged: {
