@@ -6,8 +6,9 @@ web-based 3d visualization tool using cinemascience data files
 
 # Examples
 
+* [Examples from examples dir](http://tinyurl.com/qkec7no)
 * [Reachable sets for Dubins car](http://viewlang.ru/viewlang/code/scene.html?s=https://github.com/pavelvasev/38parrots/blob/master/result.vl&conf=http://viewlang.ru/dubins/data/38conf.json) - IMM UrB RAS, [V.S. Patsko, A.A. Fedotov](http://sector3.imm.uran.ru/index_eng.html)
-* [Examples from examples dir](http://tinyurl.com/ufq97ta)
+* [Proteins](http://viewlang.ru/viewlang/code/scene.html?s=https://github.com/pavelvasev/38parrots/blob/master/result.vl&conf=http://viewlang.ru/objs/data/38examples/5-proteins/38conf.json) - IMM UrB RAS, M.A. Forghani
 * [Clean run](http://viewlang.ru/viewlang/code/scene.html?s=https://github.com/pavelvasev/38parrots/blob/master/result.vl)
 
 # Usage

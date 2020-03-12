@@ -5,7 +5,11 @@ Scene {
 //    html: "<style> fieldset legend { color: #fff; } /*checkbox:*/ .ShaderConfig { color: #ddd; } /*params text*/  .ShaderConfig .Text span { color: #777 !important; } .GroupBox span { color: #fff !important; }</style>"
 //  }
   Embed {
-    html: "<style> fieldset legend { color: #fff; }</style>"
+    html: "<style> 
+        #infoDark, fieldset legend {
+          color: #fff;  mix-blend-mode: difference;
+        }
+    </style>"
   }
   
   ColorParam {
@@ -19,6 +23,7 @@ Scene {
         scena.backgroundColor = color; 
       }
     }
+    onParentChanged: colorChanged()
     //component.onCompleted
     color: [0.13,0.12,0.16] // зелененький [0.08,0.14,0.05] // [0.12,0.22,0.09]
     visible: (scena.isRoot === true)

@@ -13,7 +13,7 @@ Scene2 {
     ///////////////// params api done
     
     property var setup_info: log_5.output /* moved to singletones */
-    text: "Сцена"
+    text: find_datacsv_1.output /* moved to singletones, second use */
     DataParam {
         
         id: param_emachine_afile
@@ -252,7 +252,7 @@ Scene2 {
       // if (typeof(separator)=="undefined") separator="(\\s|,)";
        if (typeof(separator)=="undefined") separator=","; // чето второй раз сепаратор в csv мне попался запятая )))
     
-       var separator_rx = new RegExp( separator + "+" );
+       var separator_rx = new RegExp( separator );
        console.log("using separator:",separator_rx );
     
        proj_names = splittrim( lines[0], separator_rx );

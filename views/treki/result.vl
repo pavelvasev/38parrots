@@ -263,7 +263,7 @@ Scene2 {
       // if (typeof(separator)=="undefined") separator="(\\s|,)";
        if (typeof(separator)=="undefined") separator=","; // чето второй раз сепаратор в csv мне попался запятая )))
     
-       var separator_rx = new RegExp( separator + "+" );
+       var separator_rx = new RegExp( separator );
        console.log("using separator:",separator_rx );
     
        proj_names = splittrim( lines[0], separator_rx );
