@@ -17,13 +17,15 @@ web-based 3d visualization tool using cinemascience data files
 
 38parrots provides support for 3d  artifacts. 
 
-To visualize artifact of some type, use following column names for artifact: FILE_**type**_anystring. `examples` directory provides examples for that.
+To visualize artifact of some type, use following column names for artifact: FILE_**type**_anystring. Please look at `examples` directory provides examples for that. 
 
 Following types are supported:
 * vrml (merged to one object)
 * obj (merged to one object)
 * treki 
 * points
+* spheres
+* lines
 
 After you prepared data files, open 38parrots and give it an URL of your data.csv file. 
 You also may visualize local files using open file dialog -- in that case choose all files of cinemascience data directory.
