@@ -34,15 +34,16 @@ Item {
         return;
       }      
       var f = file;
-      console.time( f ); // todo сделать такую штуку измерение вычислений.. для всех компонент.. интерфейс - инпуты изменились - засекаем
+      // сокеты начались - не будем же каждый раз время тыркать
+      //console.time( f ); // todo сделать такую штуку измерение вычислений.. для всех компонент.. интерфейс - инпуты изменились - засекаем
       loading = loadFile( f, function(res) {
         //debugger;
-        console.timeEnd( f );
+        //console.timeEnd( f );
         output = res;
         loading = false;
         loaded( f,res );
       }, function (err) {
-        console.timeEnd( f );
+        //console.timeEnd( f );
         var res = "";
         // console.log(err);
         output = res;
@@ -73,6 +74,8 @@ function loadFile( file_or_path, handler, errhandler ) {
 function loadFileBinary( file_or_path, handler, errhandler ) {
     return loadFileBase( Qt.resolvedUrl(file_or_path), false, handler, errhandler );
 }
+
+
 
 function loadFileBase( file_or_path, istext, handler, errhandler ) {
     if (file_or_path instanceof File) {
@@ -127,8 +130,11 @@ function loadFileBase( file_or_path, istext, handler, errhandler ) {
           payload = file_or_path.payload;
           file_or_path = file_or_path.path;
         }
-
+        
         if (file_or_path && file_or_path.length > 0) {
+            if (file_or_path.match(/^wss?:\/\//))
+              return loadFileWebsocket( file_or_path, istext, handler, errhandler );
+        
             setFileProgress( file_or_path,"loading");
             file_on();
 
@@ -209,4 +215,26 @@ function loadFileBase( file_or_path, istext, handler, errhandler ) {
 
     }
 } 
+
+function loadFileWebsocket( path, istext, handler, errhandler ) {
+  // https://learn.javascript.ru/websockets
+  var socket = new WebSocket( path );
+  socket.onmessage = function(event) {
+    handler( event.data );
+  };
+  
+  socket.onerror = function( event ) {
+    setFileProgress( file,"WEBSOCKET ERROR");
+      setTimeout( function() {
+         setFileProgress( file );
+       }, 25000 );
+    if (errhandler)
+      errhandler(event,path);
+  }
+  var result = {};
+  result.abort = function() { socket.close(); }
+  result.stoploading = function() { socket.close() }
+  return result;
+}
+
 }

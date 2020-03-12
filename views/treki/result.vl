@@ -243,7 +243,7 @@ Scene2 {
     }
     function func_parse_csv (data,separator) { // data is text blob
       var lines = data.split("\n"); 
-      console.log("lines=",lines.length)
+      //console.log("lines=",lines.length)
     /* ну вот что она делает.. ну парсит таблицу.. выдает массивчег.. из массивчегов.. ну хоть так для начала
        а дальше.. а дальше нам надо создать из этой штуки поле..
     */
@@ -264,7 +264,7 @@ Scene2 {
        if (typeof(separator)=="undefined") separator=","; // чето второй раз сепаратор в csv мне попался запятая )))
     
        var separator_rx = new RegExp( separator );
-       console.log("using separator:",separator_rx );
+       //console.log("using separator:",separator_rx );
     
        proj_names = splittrim( lines[0], separator_rx );
        var acc = [];
