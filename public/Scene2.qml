@@ -13,10 +13,15 @@ Scene {
     tag: "rightbottom"
     property var tag_priority: 10
     id: bgcparam
-    onColorChanged: { if (visible) scena.backgroundColor = color; }
+    onColorChanged: { 
+      if (visible && parent) { // хакобаг
+        console.log("SETTING BG COLOR");
+        scena.backgroundColor = color; 
+      }
+    }
     //component.onCompleted
     color: [0.13,0.12,0.16] // зелененький [0.08,0.14,0.05] // [0.12,0.22,0.09]
-    visible: scena.isRoot
+    visible: (scena.isRoot === true)
   }
   
 /* не работает чето tag-priority
