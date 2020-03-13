@@ -39,8 +39,7 @@ control parameter values and see changes in a scene.
 
 38parrots adds 3d artifacts to CinemaScience, allowing to create various 3d scenes dependent from parameters.
 
-In short, you describe scene in a special folder (e.g. cinema database). This folder should contain at least 1 fi
-le named `data.csv` which describes a scene.
+In short, you describe scene in a special folder (e.g. cinema database). This folder should contain at least 1 file named `data.csv` which describes a scene.
 
 Let's look at example scene file ([examples/0-points-fly.cdb/data.csv](examples/0-points-fly.cdb/data.csv)):
 ```
@@ -51,7 +50,7 @@ T,FILE_points_my1
 ```
 Here we see one parameter named `T` and one 3d artifact named `FILE_points_my`.
 
-In addition, let's our folder contains files NN.csv with content like this:
+In addition, let's our folder contains files NN.csv with content [like this](examples/0-points-fly.cdb/01.csv):
 ```
 X, Y, Z
 4.21, 9.72, 10.61
@@ -64,8 +63,8 @@ Given with this data on input, 38parrots will load it and give you following vis
 
 ![](http://showtime.lact.in/resizer_st/fit/320/320//files/visual/2020-03-13/2020-03-13-at-12-32-28.png)
 
-* [See example's data](examples/0-point-fly.cdb)
-* [Run this example live](http://tinyurl.com/qkec7no)
+* [See example's data](examples/0-points-fly.cdb)
+* [Run this example live](http://tinyurl.com/svmlfoh)
 
 # Documentation
 * [Guide](doc/guide.md)
