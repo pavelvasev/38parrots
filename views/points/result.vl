@@ -99,7 +99,7 @@ Scene2 {
     
         property var output: func_parse_csv( input_0,input_1 )
         property var input_0: obj_3.output /* by qml-xtract.cm2 */
-        property var input_1: ","
+        property var input_1: "[,;]"
     
         TextLoader2 {
             
@@ -241,11 +241,12 @@ Scene2 {
        }
     
        var skip="";
-      // if (typeof(separator)=="undefined") separator="(\\s|,)";
+       // if (typeof(separator)=="undefined") separator="(\\s|,)";
+       //if (typeof(separator)=="undefined") separator="[,;]"; // чето второй раз сепаратор в csv мне попался запятая )))
        if (typeof(separator)=="undefined") separator=","; // чето второй раз сепаратор в csv мне попался запятая )))
     
        var separator_rx = new RegExp( separator );
-       //console.log("using separator:",separator_rx );
+       console.log("using separator:",separator_rx );
     
        proj_names = splittrim( lines[0], separator_rx );
        var acc = [];
@@ -293,6 +294,8 @@ Scene2 {
           res[ proj_names[j] ] = acc[j];
         // ну кстати оно тут порядок не сохраняет.. а мы (ну Миша) его любим..
         res[ "colnames" ] = proj_names;
+        
+        console.log("csv parse res=",res );
     
         //output = revert ? acc.reverse() : acc; -- оставим в качестве памятника тупости некомпозиционности
         return res;

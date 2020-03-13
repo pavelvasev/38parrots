@@ -1,35 +1,82 @@
 # 38parrots
 
-web-based 3d visualization tool using cinemascience data files
+Web-based 3d visualization tool using CinemaScience format.
 
-![38](doc/udav-iz-multfilma-38-popugaev.jpg)
+It allows you to easily explain to computer how to visualize your data in 3d, 
+interactively control a scene and even generate animation.
 
-# Examples
+![](doc/udav-iz-multfilma-38-popugaev.jpg)
 
-* [Examples from examples dir](http://tinyurl.com/qkec7no)
-* [Reachable sets for Dubins car](http://viewlang.ru/viewlang/code/scene.html?s=https://github.com/pavelvasev/38parrots/blob/master/result.vl&conf=http://viewlang.ru/dubins/data/38conf.json) - IMM UrB RAS, [V.S. Patsko, A.A. Fedotov](http://sector3.imm.uran.ru/index_eng.html)
-* [Proteins](http://viewlang.ru/viewlang/code/scene.html?s=https://github.com/pavelvasev/38parrots/blob/master/result.vl&conf=http://viewlang.ru/objs/data/38examples/5-proteins/38conf.json) - IMM UrB RAS, M.A. Forghani
-* [Clean run](http://viewlang.ru/viewlang/code/scene.html?s=https://github.com/pavelvasev/38parrots/blob/master/result.vl)
+# Run
 
-# Usage
+[Open 38parrots in a web browser](http://tinyurl.com/qkec7no).
 
-38parrots use [CinemaScience format](https://cinemasciencewebsite.readthedocs.io/en/latest/) which is brilliantly simple and powerful at the same time. 
+# Visualizations
 
-38parrots provides support for 3d  artifacts. 
+![](http://showtime.lact.in/resizer_st/fit/160/160//files/visual/2020-03-12/2020-03-12-at-11-47-04.gif)
+![](http://showtime.lact.in/resizer_st/fit/160/160//files/visual/2020-03-12/2020-03-12-at-14-13-10.png)
+![](http://showtime.lact.in/resizer_st/fit/160/160//files/visual/2020-03-12/2020-03-12-at-14-24-20.png)
+![](http://showtime.lact.in/resizer_st/fit/160/160//files/visual/2020-03-11/2020-03-11-at-14-25-15.png)
+![](http://showtime.lact.in/resizer_st/fit/160/160//files/visual/2020-03-11/2020-03-11-at-10-35-30.png)
+![](http://showtime.lact.in/resizer_st/fit/160/160//files/visual/2020-03-05/2020-03-05-at-14-16-05.png)
+![](http://showtime.lact.in/resizer_st/fit/160/160//files/visual/2020-03-04/2020-03-04-at-13-43-27.png)
+![](http://showtime.lact.in/resizer_st/fit/160/160//files/visual/2020-03-02/2020-03-02-at-20-28-43.png)
+![](http://showtime.lact.in/resizer_st/fit/160/160//files/visual/2020-03-02/2020-03-02-at-22-47-20.png)
+![](http://showtime.lact.in/resizer_st/fit/160/160//files/visual/2020-03-02/2020-03-02-at-20-29-14.png)
 
-To visualize artifact of some type, use following column names for artifact: FILE_**type**_anystring. Please look at `examples` directory provides examples for that. 
+You may find real cases and tutorial examples in [examples](examples) dir.
 
-Following types are supported:
-* vrml (merged to one object)
-* obj (merged to one object)
-* treki 
-* points
-* spheres
-* lines
+# How does it work
 
-After you prepared data files, open 38parrots and give it an URL of your data.csv file. 
-You also may visualize local files using open file dialog -- in that case choose all files of cinemascience data directory.
+A data for visualization should be expressed in specified format and then transferred to a web browser, where 38parrots interprets and visualizes it.
+
+The format is textual and allows easily specify objects of 3d scene, parameters, and interconnection between them. User interface is generated automatically. During visualization, user
+control parameter values and see changes in a scene.
+
+# Example
+
+38parrots is based on [CinemaScience format](https://cinemasciencewebsite.readthedocs.io/en/latest/) which is brilliantly simple and powerful at the same time.
+
+As CinemaScience format is abstract, 38parrots adds 3d artifacts to it. Together it provides a lot of possibilities for 3d scene variations.
+
+In short, you describe scene in a special folder (e.g. cinema database). This folder should contain at least 1 fi
+le named `data.csv` which describes a scene.
+
+Let's look at example scene file ([examples/0-points-fly.cdb/data.csv](examples/0-points-fly.cdb/data.csv)):
+```
+T,FILE_points_my1
+0,00.csv
+1,01.csv
+2,02.csv
+```
+Here we see one parameter named `T` and one 3d artifact named `FILE_points_my`.
+
+In addition, let's our folder contains files NN.csv with content like this:
+```
+X, Y, Z
+4.21, 9.72, 10.61
+6.69, 9.43, 3.38
+9.85, 3.66, 2.09
+...
+```
+
+Given with this data on input, 38parrots will load it and give you following visualization with ability to control value of T:
+
+![](http://showtime.lact.in/resizer_st/fit/320/320//files/visual/2020-03-13/2020-03-13-at-12-32-28.png)
+
+* [See example's data](examples/0-point-fly.cdb)
+* [Run this example live](http://tinyurl.com/qkec7no)
+
+# Documentation
+* [Guide](doc/guide.md)
+* [Supported 3d artefacts](doc/3d_artefacts.md)
+* [Examples](examples/)
+
+# Документация по-русски
+* [Руководство](doc/guide.ru.md)
+* [Перечень 3d артефактов](doc/3d_artefacts.ru.md)
 
 # Credits
 
 2020 (c) Pavel Vasev
+

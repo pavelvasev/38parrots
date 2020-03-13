@@ -1,4 +1,4 @@
-puts "X,Y,Z,X1,Y1,Z1,RADIUS,R,G,B,R2,G2,B2"
+puts "X,Y,Z,X2,Y2,Z2,RADIUS,R,G,B,R2,G2,B2"
 i = 0
 while i < 360 do
   a = 2* i * Math::PI / 360.0
