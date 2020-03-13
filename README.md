@@ -59,7 +59,7 @@ X, Y, Z
 ...
 ```
 
-Given with this data on input, 38parrots will load it and give you following visualization with ability to control value of T:
+Given with specified data on input, 38parrots will visualize it as on picture below and provide a control for `T` parameter. If a user change it's value, the corresponding points file will be detected, loaded and displayed.
 
 ![](http://showtime.lact.in/resizer_st/fit/320/320//files/visual/2020-03-13/2020-03-13-at-12-32-28.png)
 
