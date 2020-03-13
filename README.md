@@ -37,7 +37,7 @@ control parameter values and see changes in a scene.
 
 38parrots is based on [CinemaScience format](https://cinemasciencewebsite.readthedocs.io/en/latest/) which is brilliantly simple and powerful at the same time.
 
-As CinemaScience format is abstract, 38parrots adds 3d artifacts to it. Together it provides a lot of possibilities for 3d scene variations.
+38parrots adds 3d artifacts to CinemaScience, allowing to create various 3d scenes dependent from parameters.
 
 In short, you describe scene in a special folder (e.g. cinema database). This folder should contain at least 1 fi
 le named `data.csv` which describes a scene.
