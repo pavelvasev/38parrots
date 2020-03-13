@@ -10,7 +10,7 @@ The second word after FILE_ and before second underscore _ means the visualizati
 
 * For example: `FILE_points_my1` means "csv points", FILE_obj_surf means "obj file", so on.
 * You may specify more than one 3d artifact in each line of a data.csv file.
-* A list of supported types is available in [3d artefacts](3d_artefacts.md) document.
+* A list of supported types is available in the [3d artefacts](3d_artefacts.md) document.
 * Also you might refer to [examples](../examples) for inspiration.
 
 ## Run 38parrots and feed it with data
@@ -32,7 +32,7 @@ npm install http-server
 http-server --cors
 ```
 The `cors` option is needed because data is loaded via ajax, and currently 38parrots code loads from `viewlang.ru` domain,
-which is in any way different than other domains with data. To load code fully locally, you need to get [viewlang](https://github.com/pavelvasev/viewlang) 3d framework.
+which is in any way different than other domains with data. In case you need to load 38parrots code fully locally, you have to serve local copy of [viewlang](https://github.com/pavelvasev/viewlang) 3d framework.
 
 One interesting option is to use `Web Server for Chrome` extension, which activates local web server from Chrome browser.
 Even in that case, don't forget to activate `set CORS headers` in advanced options.
