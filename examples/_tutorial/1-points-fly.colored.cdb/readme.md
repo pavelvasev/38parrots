@@ -12,11 +12,9 @@ X, Y, Z, R, G, B
 2.20, 3.61, 1.80, 0.33, 0.51, 0.89
 ...
 ```
-The [../doc/3d_artefacts.md](3d_artefacts.md) document clarify meaning of columns.
+The [doc/3d_artefacts.md](../../../doc/3d_artefacts.md) document clarify meaning of columns.
 
-The `data.csv` file remains unchanged.
-
-We achieve following visualization:
+The `data.csv` file remains unchanged. We achieve following visualization:
 
 ![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-22-34-39.png[0])
 
