@@ -22,7 +22,7 @@ The points looks prettier with colors. But we decide to add more special effects
 using graphical interface of 38parrots:
 * sprites are rendered in additive mode,
 * without depth test,
-* and another sprite.
+* and with another sprite.
 
 Now we achieve following image:
 
