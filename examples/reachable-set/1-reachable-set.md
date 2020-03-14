@@ -38,12 +38,12 @@ N,FILE_vrml_mnoj
 
 With 38parrots we achieved following visualizations:
 
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-50-12.png)
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-50-16.png)
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-50-26.png)
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-50-34.png)
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-53-20.png)
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-53-56.png)
+![](http://showtime.lact.in/resizer_st/fit/240/240//files/visual/2020-03-14/2020-03-14-at-16-50-12.png)
+![](http://showtime.lact.in/resizer_st/fit/240/240//files/visual/2020-03-14/2020-03-14-at-16-50-16.png)
+![](http://showtime.lact.in/resizer_st/fit/240/240//files/visual/2020-03-14/2020-03-14-at-16-50-26.png)
+![](http://showtime.lact.in/resizer_st/fit/240/240//files/visual/2020-03-14/2020-03-14-at-16-50-34.png)
+![](http://showtime.lact.in/resizer_st/fit/240/240//files/visual/2020-03-14/2020-03-14-at-16-53-20.png)
+![](http://showtime.lact.in/resizer_st/fit/240/240//files/visual/2020-03-14/2020-03-14-at-16-53-56.png)
 
 We implemented clipping and other tools as a "plugins", which might be activated by user (the Extras button). 
 These tools are now added to core of 38parrots and are available for all users of all tasks. 
