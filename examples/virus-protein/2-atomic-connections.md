@@ -8,7 +8,7 @@ formed by atoms.
 ## Solution
 > [Available online](http://tinyurl.com/u8vukmh)
 
-We prepared [CinemaScience database](http://viewlang.ru/objs/data/38examples/5-proteins/protein-2-connections.cdb/) for the data to feed 38parrots.
+We prepared CinemaScience [database](http://viewlang.ru/objs/data/38examples/5-proteins/protein-2-connections.cdb/) with the data to feed 38parrots.
 
 It's `data.csv` is the following:
 ```
