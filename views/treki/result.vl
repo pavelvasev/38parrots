@@ -342,7 +342,7 @@ Scene2 {
       for (var i=0; i<arr.length; i++)
         a[ arr[i] ] = 1;
       //return ["---"].concat( Object.keys( a ).sort() );
-      return Object.keys( a ).sort();
+      return Object.keys( a ).sort( function (a, b) {  return a - b;  } ); // сортировка чисел, просто .sort() им мало
     }
     function func_arrconcat (arr1,arr2) {
       if (!Array.isArray(arr1)) arr1=[arr1];

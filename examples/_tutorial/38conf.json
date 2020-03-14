@@ -1,0 +1,53 @@
+{
+  "show_axes": 1,
+  "presets": [
+    {
+      "title": "Tutorial",
+      "variants": [
+        {
+          "title": "Points fly",
+          "params": {
+            "afile": [
+              "./examples/_tutorial/0-points-fly.cdb/data.csv"
+            ]
+          }
+        },      
+        {
+          "title": "Running point",
+          "params": {
+            "afile": [
+              "./examples/_tutorial/1-running-point.cdb/data.csv"
+            ]
+          }
+        },
+        {
+          "title": "Points with radius",
+          "params": {
+            "afile": [
+              "./examples/_tutorial/2-running-point-radius.cdb/data.csv"
+            ]
+          }
+        },
+        {
+          "title": "Points grid",
+          "params": {
+            "afile": [
+              "./examples/_tutorial/3-point-grid.cdb/data.csv"
+            ]
+          }
+        },
+        {
+          "title": "Grid on sphere",
+          "params": {
+            "afile": [
+              "http://viewlang.ru/objs/data/38examples/4-grid-on-sphere.cdb/data.csv"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "afile": [
+    "./examples/_tutorial/0-points-fly.cdb/data.csv" 
+  ]
+}
