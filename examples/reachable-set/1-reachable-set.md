@@ -13,7 +13,7 @@ Provide additional tools for better perception:
 Moreover, provide "autoscale" command to automatically scale vrml data
 to a given size - because various vrml sets computed at various scales.
 
-The task was provided by V.S. Patsko and A.A. Fedotov from N.N. Krasovksii Institue 
+The task was provided by **V.S. Patsko and A.A. Fedotov** from N.N. Krasovksii Institute 
 of Mathematics and Mechanics of the Ural's branch of Russian Academy of Sciences,
 http://sector3.imm.uran.ru/index_eng.html
 
