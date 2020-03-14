@@ -1,6 +1,6 @@
 
 def writepts( t,x,y,z,datacsv ) 
-  pname = "#{'%02.0f' %t}.csv"
+  pname = "points/#{'%02.0f' %t}.csv"
   File.open( pname,"w" ) do |f|
     f.puts "X, Y, Z"
     for i in 0...x.length do
