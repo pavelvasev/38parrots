@@ -5,7 +5,7 @@
       "title": "Tutorial",
       "variants": [
         {
-          "title": "Points-fly",
+          "title": "Points&nbsp;fly",
           "params": {
             "afile": [
               "./examples/_tutorial/0-points-fly.cdb/data.csv"
@@ -13,10 +13,10 @@
           }
         },      
         {
-          "title": "Points-fly-colored",
+          "title": "Points&nbsp;fly&nbsp;colored",
           "params": {
             "afile": [
-              "./examples/_tutorial/0-points-fly.colored.cdb/data.csv"
+              "./examples/_tutorial/1-points-fly.colored.cdb/data.csv"
             ]
           }
         },        
@@ -56,6 +56,6 @@
     }
   ],
   "afile": [
-    "./examples/_tutorial/0-points-fly.colored.cdb/data.csv" 
+    "https://github.com/pavelvasev/38parrots/blob/master/examples/_tutorial/1-points-fly.colored.cdb/data.csv" 
   ]
 }
