@@ -26,7 +26,7 @@ using graphical interface of 38parrots:
 
 Now we achieve following image:
 
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-22-35-31.png[0])
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-22-35-31.png)
 
 We generate animation for whole cinema database using 38parrots animation feature:
 
