@@ -39,15 +39,15 @@ We use same type `treki` to show current points for instant T - for it's feature
 
 We achieved following visualizations:
 
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-18-15-57.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-18-18-45.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-12/2020-03-12-at-11-37-42.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-12/2020-03-12-at-11-37-55.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-12/2020-03-12-at-11-54-17.png[0])
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-18-15-57.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-18-18-45.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-12/2020-03-12-at-11-37-42.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-12/2020-03-12-at-11-37-55.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-12/2020-03-12-at-11-54-17.png)
 
 Also we achieved some animations like this:
 
-![](http://showtime.lact.in/resizer_st/fit/420/420//files/visual/2020-03-12/2020-03-12-at-11-47-04.gif[0])
+![](http://showtime.lact.in/resizer_st/fit/420/420//files/visual/2020-03-12/2020-03-12-at-11-47-04.gif)
 
 The visualization journey on Dubins car continues.
 

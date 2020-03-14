@@ -43,20 +43,20 @@ Example excerpt from tracks data, `Symm-20-80.Treki.csv`:
 
 Visualizations we achieved:
 
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-17-36-20.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-17-36-28.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-17-36-41.png[0])
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-17-36-20.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-17-36-28.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-17-36-41.png)
 
 During development and debug, we observed a lot of some fun pictures:
 
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-02/2020-03-02-at-11-55-23.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-02/2020-03-02-at-11-55-29.png[0])
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-02/2020-03-02-at-11-55-23.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-02/2020-03-02-at-11-55-29.png)
 
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-02/2020-03-02-at-11-54-45.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-02/2020-03-02-at-11-55-45.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-02/2020-03-02-at-18-26-58.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-02/2020-03-02-at-20-23-11.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-02/2020-03-02-at-20-25-35.png[0])
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-02/2020-03-02-at-11-54-45.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-02/2020-03-02-at-11-55-45.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-02/2020-03-02-at-18-26-58.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-02/2020-03-02-at-20-23-11.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-02/2020-03-02-at-20-25-35.png)
 
 In [next task](3-tracks-for-reachable-set-and-point.md) we will emphasize points on tracks of corresponding time instant T.
 

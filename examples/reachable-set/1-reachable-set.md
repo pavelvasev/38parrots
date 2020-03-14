@@ -38,27 +38,27 @@ N,FILE_vrml_mnoj
 
 With 38parrots we achieved following visualizations:
 
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-50-12.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-50-16.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-50-26.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-50-34.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-49-29.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-53-20.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-53-56.png[0])
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-50-12.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-50-16.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-50-26.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-50-34.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-49-29.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-53-20.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-16-53-56.png)
 
 We implemented clipping and other tools as a "plugins", which might be activated by user (the Extras button). 
 These tools are now added to core of 38parrots and are available for all users of all tasks. 
 
 The result of applying of these tools is visible on following pictures.
 
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-01/2020-03-01-at-19-59-06.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-01-04/2020-01-04-at-17-11-18.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-01-08/2020-01-08-at-12-40-45.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-01-08/2020-01-08-at-00-39-54.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-01-08/2020-01-08-at-00-40-24.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-01-08/2020-01-08-at-12-35-29.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-01-08/2020-01-08-at-12-41-01.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-01-08/2020-01-08-at-12-20-29.png[0])
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-01/2020-03-01-at-19-59-06.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-01-04/2020-01-04-at-17-11-18.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-01-08/2020-01-08-at-12-40-45.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-01-08/2020-01-08-at-00-39-54.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-01-08/2020-01-08-at-00-40-24.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-01-08/2020-01-08-at-12-35-29.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-01-08/2020-01-08-at-12-41-01.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-01-08/2020-01-08-at-12-20-29.png)
 
 Using animation feature, we generated video of development of a reachable set:
 https://www.youtube.com/watch?v=A0CKbgIS8k4
