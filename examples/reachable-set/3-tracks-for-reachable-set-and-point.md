@@ -53,7 +53,8 @@ The visualization journey on Dubins car continues.
 
 ---
 The listed serie of tasks and core visualization techniques were provided by
-V.S. Patsko and A.A. Fedotov from N.N. Krasovksii Institue of Mathematics and Mechanics
+**V.S. Patsko and A.A. Fedotov** from N.N. Krasovksii Institute of Mathematics and Mechanics
 of the Ural's branch of Russian Academy of Sciences, http://sector3.imm.uran.ru/index_eng.html
+
 The investigation and conversion to CinemaScience 38parrot's 3d artifacts 
 were performed by P.A. Vasev, http://www.cv.imm.uran.ru
