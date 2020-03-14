@@ -1,7 +1,7 @@
 # Atoms with connections
 
 ## Task
-[Majid Forghani](https://www.researchgate.net/profile/Majid_Forghani2) continued his [previous efforts](2-atomic-connections.md) and decided to visualize another dataset,
+[Majid Forghani](https://www.researchgate.net/profile/Majid_Forghani2) continued his [previous efforts](1-virus-protein.md) and decided to visualize another dataset,
 where atoms are provided with connections. This is very important information, giving an ability to understand higher level materias
 formed by atoms.
 
