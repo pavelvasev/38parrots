@@ -45,7 +45,7 @@ We achieved following visualizations:
 ![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-12/2020-03-12-at-11-37-55.png)
 ![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-12/2020-03-12-at-11-54-17.png)
 
-Also we achieved some animations like this:
+Also we achieved some animations like this [gif](http://showtime.lact.in/resizer_st/fit/420/420//files/visual/2020-03-12/2020-03-12-at-11-47-04.gif):
 
 ![](http://showtime.lact.in/resizer_st/fit/420/420//files/visual/2020-03-12/2020-03-12-at-11-47-04.gif)
 
