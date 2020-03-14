@@ -22,10 +22,10 @@ connection between atoms.
 
 We achieved following visualizations:
 
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-19-34-41.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-19-34-51.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-19-42-24.png[0])
-![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-19-45-16.png[0])
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-19-34-41.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-19-34-51.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-19-42-24.png)
+![](http://showtime.lact.in/resizer_st/fit/340/340//files/visual/2020-03-14/2020-03-14-at-19-45-16.png)
 
 Also we generated a [gif animation](http://showtime.lact.in/files/visual/2020-03-14/2020-03-14-at-19-40-12.gif) (28 mb).
 In this animation, we clip atoms and connections using "Y-serie" plugin.
