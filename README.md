@@ -9,7 +9,7 @@ interactively control a scene and even generate animation.
 
 # Run
 
-[Open 38parrots in a web browser](http://tinyurl.com/qkec7no).
+[Open 38parrots in a web browser](http://viewlang.ru/viewlang/code/scene.html?s=https://github.com/pavelvasev/38parrots/blob/master/result.vl&conf=https://github.com/pavelvasev/38parrots/blob/master/examples/_tutorial/38conf.json)
 
 # Visualizations
 
@@ -41,7 +41,7 @@ control parameter values and see changes in a scene.
 
 In short, you describe scene in a special folder (e.g. cinema database). This folder should contain at least 1 file named `data.csv` which describes a scene.
 
-Let's look at example scene file ([examples/0-points-fly.cdb/data.csv](examples/0-points-fly.cdb/data.csv)):
+Let's look at example scene file ([examples/_tutorial/0-points-fly.cdb/data.csv](examples/_tutorial/0-points-fly.cdb/data.csv)):
 ```
 T,FILE_points_my1
 0,00.csv
@@ -63,8 +63,8 @@ Given with specified data on input, 38parrots will visualize it as on picture be
 
 ![](http://showtime.lact.in/resizer_st/fit/320/320//files/visual/2020-03-13/2020-03-13-at-12-32-28.png)
 
-* [See example's data](examples/0-points-fly.cdb)
-* [Run this example live](http://tinyurl.com/svmlfoh)
+* [See example's data](examples/_tutorial/0-points-fly.cdb)
+* [Run this example live](http://tinyurl.com/txeex32)
 
 # Documentation
 * [Guide](doc/guide.md)

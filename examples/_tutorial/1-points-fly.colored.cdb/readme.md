@@ -1,6 +1,6 @@
 # Flying points colored
 
-> Run online
+> [Run online](http://tinyurl.com/wvxmje8)
 
 In addition to point coordinates from previous example, we will add colors to that points.
 

@@ -5,13 +5,21 @@
       "title": "Tutorial",
       "variants": [
         {
-          "title": "Points fly",
+          "title": "Points-fly",
           "params": {
             "afile": [
               "./examples/_tutorial/0-points-fly.cdb/data.csv"
             ]
           }
         },      
+        {
+          "title": "Points-fly-colored",
+          "params": {
+            "afile": [
+              "./examples/_tutorial/0-points-fly.colored.cdb/data.csv"
+            ]
+          }
+        },        
         {
           "title": "Running point",
           "params": {
@@ -48,6 +56,6 @@
     }
   ],
   "afile": [
-    "./examples/_tutorial/0-points-fly.cdb/data.csv" 
+    "./examples/_tutorial/0-points-fly.colored.cdb/data.csv" 
   ]
 }

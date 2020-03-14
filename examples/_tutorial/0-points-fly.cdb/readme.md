@@ -1,6 +1,6 @@
 # Flying points example
 
-> Run online
+> [Run online](http://tinyurl.com/txeex32)
 
 In this example we visualize a set of points, whose cooridinates change during time.
 
