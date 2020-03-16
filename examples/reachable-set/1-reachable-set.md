@@ -2,7 +2,7 @@
 
 Reachable set for Dubins car is a mathematical object that represents area in 3d space (x,y,Fi),
 where the Dubins car could reach at a given moment. It is both theoretically interesting
-and practically useful for robotics, aeronautics, and many others.
+and practically useful for robotics, aeronautics, and many other areas.
 
 [V. S. Patsko scientific group](http://sector3.imm.uran.ru/index_eng.html) in N.N. Krasovksii Institute of Mathematics and Mechanics 
 of the Ural's branch of Russian Academy of Sciences perform research on mathematician areas which include Dubins car model for many years. 

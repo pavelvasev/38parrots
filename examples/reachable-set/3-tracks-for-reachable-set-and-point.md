@@ -49,7 +49,7 @@ Also we achieved some animations like this [gif](http://showtime.lact.in/resizer
 
 ![](http://showtime.lact.in/resizer_st/fit/420/420//files/visual/2020-03-12/2020-03-12-at-11-47-04.gif)
 
-The visualization journey on Dubins car continues.
+The 38parrots visualization journey on Dubins car continues.
 
 ---
 The data and images provided on this page are (c) V. S. Patsko and A. A. Fedotov,
