@@ -6,7 +6,7 @@ f.puts "ax,ay,FILE_points_my"
 
 def genartefact( i,a,b )
   fn = "files/#{i}.points.csv"
-  c = 5
+  c = 1
   File.open(fn,"w") do |f|
     f.puts "X,Y,Z"
     f.puts "#{a*c},#{b*c},0"
@@ -18,8 +18,10 @@ i=0
 
 for x in 1..5 do
 for y in 1..5 do
-  afname = genartefact( i,x,y )
-  f.puts "#{x},#{y},#{afname}"
+  sx = x/2.0
+  sy = y/2.0
+  afname = genartefact( i,sx,sy )
+  f.puts "#{sx},#{sy},#{afname}"
   i=i+1
 end
 end
