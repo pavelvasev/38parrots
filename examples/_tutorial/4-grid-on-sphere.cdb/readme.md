@@ -2,11 +2,11 @@
 
 In this example, we desire to visualize a cubical 3d regular grid of points.
 The grid for this example is the following - a cube and a spherical sparse space inside it.
-In addition, we want to see `Z` parameter to see the grid limited by z value.
+In addition, we want to have `Z` parameter to see only part of the grid, limited by z value.
 
 Of course, we just might use "Z-clip" tool available in 38parrots, but that might be not 
-so interesting for this example purpose. The real purpose is to show something computing-like,
-among with to stress-test a GPU to understand how much points it could render with WebGL,
-which 38parrots are based on.
+so interesting for this example purpose. The real purpose is to show a data that look like
+computatinal, among with to stress-test a GPU to understand how much points it could render 
+with WebGL, which 38parrots are based on.
 
 
