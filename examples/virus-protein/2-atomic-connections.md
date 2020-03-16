@@ -1,9 +1,10 @@
 # Atoms with connections
 
+Beside atoms itself, the connections between atoms are important information, giving an ability to understand higher level materias formed.
+We have connections information and desire to visually examine it.
+
 ## Task
-[Majid Forghani](https://www.researchgate.net/profile/Majid_Forghani2) continued his [previous efforts](1-virus-protein.md) and decided to visualize another dataset,
-where atoms are provided with connections. This is very important information, giving an ability to understand higher level materias
-formed by atoms.
+Visualize a set of atoms as points and connections between them as lines.
 
 ## Solution
 > [Available online](http://tinyurl.com/u8vukmh)
@@ -32,4 +33,4 @@ In this animation, we clip atoms and connections using "Y-serie" plugin.
 So we are able to see only subset of atoms and connections.
 
 ---
-2020, Majid Forghani, Pavel Vasev, http://www.cv.imm.uran.ru
+(c) 2020, Majid Forghani, Pavel Vasev, http://www.cv.imm.uran.ru

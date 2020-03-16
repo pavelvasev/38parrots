@@ -1,10 +1,16 @@
 # Virus protein visualization
 
+Visualization of an amino acid property (such as hydrophobicity) on the surface of a protein is very important 
+for studying and understanding the functionality of a protein. 
+Therefore, the first step for this purpose is to extract the coordinates of the macromolecule atoms, 
+calculate and construct the surface using the Vanderval radius, 
+and calculate and visualize the properties of amino acid on the surface as a color.
+
+The current stage is to construct the macromolecule surface using the coordinates obtained from the PDB file.
+So we go on that way with a set of tasks, and following is the first one.
+
 ## Task
-[Majid Forghani](https://www.researchgate.net/profile/Majid_Forghani2) is a talended mathematician who commits a lot to virus investigation and evolution analysis.
-He was interested in visualizing data of influenza virus protein atoms, which were computed earlier in work, referenced below [1,2].
-Thus he converted PDB data to text format with given atoms coordinates and colors according to atom type.
-Then he suggested to visualize those atoms as a set of points.
+Given the coordinates of atoms, extracted from works [1,2], visualize those atoms as a set of points in 3d space.
 
 ## Solution
 > [Available online](http://tinyurl.com/yx6btopu)
@@ -59,3 +65,6 @@ References:
 1. Xu, R., Ekiert, D.C., Krause, J.C., Hai, R., Crowe, J.E., Jr., Wilson, I.A..
 Structural Basis of Preexisting Immunity to the 2009 H1N1 Pandemic Influenza Virus. United States: N. p., 2013. Web. DOI: [10.1126/science.1186430](https://doi.org/10.1126/science.1186430)
 2. Crystal structure of a 2009 H1N1 influenza virus hemagglutinin. DOI: [10.2210/pdb3lzg/pdb](http://dx.doi.org/10.2210/pdb3lzg/pdb)
+
+---
+2020 (c) Majid Forghani, Pavel Vasev, http://www.cv.imm.uran.ru
