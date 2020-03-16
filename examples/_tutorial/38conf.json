@@ -57,5 +57,15 @@
   ],
   "afile": [
     "https://github.com/pavelvasev/38parrots/blob/master/examples/_tutorial/1-points-fly.colored.cdb/data.csv" 
+  ],
+  "cameraPos": [
+    77.07428230081159,
+    39.99833088447869,
+    68.21361672475605
+  ],
+  "cameraCenter": [
+    5.933191501689206,
+    6.810838784081593,
+    -1.6965384986063206
   ]
 }
