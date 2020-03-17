@@ -99,7 +99,7 @@ Scene2 {
     
         property var output: func_parse_csv( input_0,input_1 )
         property var input_0: obj_3.output /* by qml-xtract.cm2 */
-        property var input_1: "[,;]"
+        property var input_1: ","
     
         TextLoader2 {
             
