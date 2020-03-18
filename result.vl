@@ -24,6 +24,15 @@ Scene2 {
         property var val: files
     }
     
+    TextButton {
+        
+        id: obj_0
+    
+        text: "Прочитать повторно"
+        onClicked: ld_data_csv.go()
+        property var tag: "left"
+    }
+    
     CinemaParams {
         
         id: param_emachine_cinema_params
@@ -33,7 +42,7 @@ Scene2 {
     
     ExtrasBridge {
         
-        id: obj_0
+        id: obj_1
     
         cinemaViews: cinema_views
         masterExtrasManager: local_extras_manager
@@ -80,11 +89,11 @@ Scene2 {
         id: parse_csv_3
     
         property var output: func_parse_csv( input_0 )
-        property var input_0: obj_1.output /* by qml-xtract.cm2 */
+        property var input_0: ld_data_csv.output /* by qml-xtract.cm2 */
     
         TextLoader2 {
             
-            id: obj_1
+            id: ld_data_csv
         
             property var input_0: resolved_2.output /* by qml-xtract.cm2 */
         
