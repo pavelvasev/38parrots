@@ -174,7 +174,7 @@ function loadFileBase( file_or_path, istext, handler, errhandler ) {
                   setFileProgress( file_or_path, "loaded" );
                   setTimeout( function() {
                     setFileProgress( file_or_path );
-                  }, 2500 ); // не сразу убирать сообщение
+                  }, 500 ); // не сразу убирать сообщение
                 } else {
                   console.log("xhr load error (soft)");
                   console.log("xhr object=",this);
