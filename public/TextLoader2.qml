@@ -179,7 +179,7 @@ function loadFileBase( file_or_path, istext, handler, errhandler ) {
                   console.log("xhr load error (soft)");
                   console.log("xhr object=",this);
                   console.log("event=",e);
-                  setFileProgress( file_or_path, "empty response error" );
+                  setFileProgress( file_or_path, "RESPONSE ERROR" );
                   setTimeout( function() {
                     setFileProgress( file_or_path );
                   }, 25000 ); // не сразу убирать сообщение                
