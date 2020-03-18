@@ -64,4 +64,7 @@ Scene {
     id: psm
   }
   property var sceneconf: undefined
+  
+  ////
+  property var textLoaderIterations: 0
 }

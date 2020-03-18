@@ -8,3 +8,4 @@ ExtrasManager 1.0 std_extras/ExtrasManager.qml
 PresetsManager 1.0 presets/PresetsManager.qml
 DeferredCalc 1.0 DeferredCalc.qml
 StateManager 1.0 StateManager.qml
+TextReload 1.0 TextReload.qml

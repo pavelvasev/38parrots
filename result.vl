@@ -24,13 +24,11 @@ Scene2 {
         property var val: files
     }
     
-    TextButton {
+    TextReload {
         
         id: obj_0
     
-        text: "Прочитать повторно"
-        onClicked: ld_data_csv.go()
-        property var tag: "left"
+        tag: "left"
     }
     
     CinemaParams {
@@ -89,11 +87,11 @@ Scene2 {
         id: parse_csv_3
     
         property var output: func_parse_csv( input_0 )
-        property var input_0: ld_data_csv.output /* by qml-xtract.cm2 */
+        property var input_0: obj_2.output /* by qml-xtract.cm2 */
     
         TextLoader2 {
             
-            id: ld_data_csv
+            id: obj_2
         
             property var input_0: resolved_2.output /* by qml-xtract.cm2 */
         
@@ -136,7 +134,7 @@ Scene2 {
         property var input_2: basepath_7.output /* by qml-xtract.cm2 */
         DeferredCalc {
             
-            id: obj_2
+            id: obj_3
         
             targetProperty: "output"
             func: func_generate_artefact_paths

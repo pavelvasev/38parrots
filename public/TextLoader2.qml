@@ -1,4 +1,5 @@
 Item {
+    id: ldr
 
     property var input_0: "not-overrided"
     property var input_1: undefined
@@ -19,6 +20,8 @@ Item {
 
     signal loaded( string loadedFile, string loadedOutput );
     
+    property var textLoaderIterations: findRootScene( ldr ).textLoaderIterations
+    onTextLoaderIterationsChanged: go();
     
     onFileChanged: go();
     onEnabledChanged: go();
@@ -163,7 +166,10 @@ function loadFileBase( file_or_path, istext, handler, errhandler ) {
                   return;
                 }*/
 
-                setFileProgress( file_or_path );
+                setFileProgress( file_or_path,"loaded" );
+                setTimeout( function() {
+                  setFileProgress( file_or_path );
+                }, 2500 ); // не сразу убирать сообщение
             };
 
             xhr.onerror = function(e) {
