@@ -14,7 +14,7 @@ Scene2 {
     
     property var setup_info: log_5.output /* moved to singletones */
     text: find_datacsv_1.output /* moved to singletones, second use */
-    DataParam {
+    CinemaFiles {
         
         id: param_emachine_afile
     
