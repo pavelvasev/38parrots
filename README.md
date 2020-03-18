@@ -9,9 +9,10 @@ interactively control a scene and even generate animation.
 
 # Run
 
-[Open 38parrots in a web browser](http://viewlang.ru/viewlang/code/scene.html?s=https://github.com/pavelvasev/38parrots/blob/master/result.vl&conf=https://github.com/pavelvasev/38parrots/blob/master/examples/_tutorial/38conf.json)
-|
-[clean run](http://viewlang.ru/viewlang/code/scene.html?s=https://github.com/pavelvasev/38parrots/blob/master/result.vl)
+[Open 38parrots with tutorial scenes](http://viewlang.ru/viewlang/code/scene.html?s=https://github.com/pavelvasev/38parrots/blob/master/result.vl&conf=https://github.com/pavelvasev/38parrots/blob/master/examples/_tutorial/38conf.json)
+
+Other option:
+[38parrots clean run](http://viewlang.ru/viewlang/code/scene.html?s=https://github.com/pavelvasev/38parrots/blob/master/result.vl)
 
 # Visualizations
 
