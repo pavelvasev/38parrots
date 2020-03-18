@@ -148,7 +148,8 @@ function loadFileBase( file_or_path, istext, handler, errhandler ) {
             xhr.responseType = istext ? 'text' : 'arraybuffer';
 
             xhr.onload = function(e) {
-                //console.log("xhr loadFileBase onload fired",file_or_path,e);            
+                //console.log("xhr loadFileBase onload fired",file_or_path,e);
+                //console.log("this=",this);
                 // response is unsigned 8 bit integer
                 //var responseArray = new Uint8Array(this.response);
                 setFileProgress( file_or_path,"parsing");
@@ -168,12 +169,16 @@ function loadFileBase( file_or_path, istext, handler, errhandler ) {
 
 //setFileProgress( file_or_path );
 
-                if (this.response) {
+                var iserr = this.status == 404 || !this.response;
+                if (!iserr) {
                   setFileProgress( file_or_path, "loaded" );
                   setTimeout( function() {
                     setFileProgress( file_or_path );
                   }, 2500 ); // не сразу убирать сообщение
                 } else {
+                  console.log("xhr load error (soft)");
+                  console.log("xhr object=",this);
+                  console.log("event=",e);
                   setFileProgress( file_or_path, "empty response error" );
                   setTimeout( function() {
                     setFileProgress( file_or_path );
