@@ -10,7 +10,7 @@ git clone https://github.com/pavelvasev/38parrots/ && git clone https://github.c
 ```
 
 ## Запуск
-Пусть веб-сервер запущен на порту 8080:
+Пусть веб-сервер запущен на порту 8085:
 
 ```
 http-server -p 8085
