@@ -7,7 +7,9 @@ and practically useful for robotics, aeronautics, and many other areas.
 [V. S. Patsko scientific group](http://sector3.imm.uran.ru/index_eng.html) in N.N. Krasovksii Institute of Mathematics and Mechanics of the Ural's branch of Russian Academy of Sciences perform research on mathematician areas which include Dubins car model for many years. 
 
 The listed serie of tasks and core visualization techniques were provided by **V. S. Patsko and A. A. Fedotov**
-and are dedicated to computations on Dubins car model. Task solution was performed by [Computer visualization lab at N.N. Krasovskii Institute](http://www.cv.imm.uran.ru).
+and are dedicated to computations on Dubins car model. 
+
+Tasks solutions were performed by [Computer visualization lab at N.N. Krasovskii Institute](http://www.cv.imm.uran.ru).
 
 ## Task
 There is a surface changing during time, given in vrml file 
