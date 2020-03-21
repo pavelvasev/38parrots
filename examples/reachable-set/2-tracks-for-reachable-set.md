@@ -10,7 +10,7 @@ and it is required to show both all points of all tracks and only some tracks sp
 > [Avaliable online](http://tinyurl.com/u86tom7)
 
 We have to get `data.csv` from previous task and add second artifact to it - a tracks data.
-We decided to develop special type `treki` to show that tracks. We might use points, but
+We decided to use special type `treki` to show that tracks. We might use points, but
 we need to select only some tracks to show. That what is `treki` type do - it analyzes
 `N` column of tracks data and generates GUI to select only desired an.
 
