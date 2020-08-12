@@ -1,0 +1,15 @@
+##### param.rb [cinemafiles]
+set_type( ctx.r, "CinemaFiles" )
+`` values - выставить во входные значения
+`` files -  это будут выходные значения
+`` multiple - возможность выбирать несколько
+`` кстати вот вам идея - выбор нескольких, и слайдер, и дает одного
+deploy_property( ctx.r, "values", ctx.input )
+
+#mult = obj[:many].nil? ? true : obj[:many]
+#mult = [true,1,"true","1","yes"].include?( obj[:many] ) ? 
+mult = ["false","0","no",false,0].include?( obj[:many] ) ? false : true
+deploy_property( ctx.r, "multiple",mult )
+
+#deploy_property( ctx.r, "val", mult ? "files" : "files ? files[0] : undefined", :property )
+deploy_property( ctx.r, "val", mult ? "files" : "file", :property )

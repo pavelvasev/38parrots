@@ -1,6 +1,6 @@
-import components.creative_points 1.0
 import "./../../public"
 
+import components.creative_points 1.0
 Scene2 {
     
     id: scene_obj

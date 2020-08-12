@@ -1,6 +1,11 @@
+#### reload_btn
+<object type="TextReload">
+  <property_set name="tag">"left"</property_set>
+</object>
+
 #### V
 <parse_csv>
-  <load_file>
+  <load_file reload="1">
     <datacsv/>
     <!-- вот ксати, управление снаружи.. <this.data.0/> -->
   </load_file>
@@ -16,9 +21,10 @@
 #### params
 <group>
   <computing_mode>
-  <param name="afile" files="1">
-    <resolved>'./examples/_tutorial/1-running-point.cdb/data.csv'</resolved>
+  <param name="afile" cinemafiles="1">
+    <!-- <resolved>'./examples/1-running-point.cdb/data.csv'</resolved> -->
   </param>
+  <reload_btn> 33 </reload_btn>
   <cinema_params name="cp">
     <V/>
   </cinema_params>
@@ -123,9 +129,9 @@ params:
 ### scene_title
 <datacsv/>
 
-```
-#### scene
-<import_and_deploy>
-  "public.src"
-</import_and_deploy>
-```
+### str_or.txt
+function(obj,def) {
+  if (typeof(obj) == "string") return obj;
+  return (def||"");
+}
+

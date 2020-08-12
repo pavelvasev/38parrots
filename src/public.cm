@@ -1,0 +1,7 @@
+##### scene.rb priority=-5 @add_import_public_cinema
+r = ctx.machine.compute( :add_import,["./public/cinema"],"q" )
+ctx.r = [r, ctx.r]
+src=File.join(ENV["PARROTS_DIR"],"public.src")
+tgt=File.join(TARGET_DIR,"public/cinema")
+ctx.machine.compute( :copy_dir,[src,tgt],"q" )
+

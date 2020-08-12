@@ -13,3 +13,15 @@
     <property_set name="artefacts"> <tdata.1/> </property_set>
   </computing_mode>
 </object>
+
+```
+#### cinema_files
+<object type="CinemaFiles" id="cinema_files">
+  <computing_mode>
+    <property_set name="input_0"> <tdata.0/> </property_set>
+    <property_set name="artefacts"> <tdata.1/> </property_set>
+  </computing_mode>
+</object>
+```
+
+### include param-cinemafiles.cm
