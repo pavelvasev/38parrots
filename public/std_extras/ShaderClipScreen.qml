@@ -87,6 +87,13 @@ Shader {
                           //if (qpositionOZ.OZ > p1+p2) discard;
                           if (sqpositionOZ.OZ > p1+p2) 
                             discard;
+                            
+                          // подсветка краев сечений
+                          #ifdef CLIP_EPS_HI
+                          if (sqpositionOZ.OZ-CLIP_EPS_HI/20.0 < p1 || sqpositionOZ.OZ+CLIP_EPS_HI/20.0 > p1+p2)
+                            gl_FragColor = vec4(0.0,0.0,0.0,1.0);
+                          #endif
+                            
                             //gl_FragColor = vec4(1.0,0.0,0.0,0.1);;
                             //gl_FragColor.a = 0.2;
                             //gl_FragColor = vec4(1.0,0.0,1.0,1.0);;

@@ -74,7 +74,7 @@ Shader {
           uniform float p1;
           uniform float p2;
           varying float q2positionOZ;
-          
+
           void main()
           {
             //qpositionOZ = mod( position.OZ, p1 );
@@ -82,7 +82,7 @@ Shader {
           }
            "
   vertex: vertex_t.replace(/OZ/g,os);           
-                        
+
   fragmentOver: true // режим смешения с базовым цветом
 
   property var fragmenttempl: "
@@ -93,8 +93,15 @@ Shader {
                   void main()
                         {
                           if (mod( q2positionOZ,p1) / p1 > p2) discard;
+                          
+                          // подсветка краев сечений
+                          #ifdef CLIP_EPS_HI
+                          if (mod( q2positionOZ + CLIP_EPS_HI,p1) / p1 > p2 || mod( q2positionOZ,p1) < CLIP_EPS_HI)
+                            gl_FragColor = vec4(0.0,0.0,0.0,1.0);
+                          #endif
+                          
             }
            "
   fragment: fragmenttempl.replace(/OZ/g,os);
-                        
+
 }

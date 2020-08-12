@@ -50,7 +50,8 @@ GroupBox {
     ["Серия "+ytitle,"ShaderClipS?y", { os: "y", titl: ytitle }],
     ["Подкраска сечений "+ztitle,"ShaderColorS?z", { os: "z", titl: ztitle }],
     ["Подкраска сечений "+xtitle,"ShaderColorS?x", { os: "x", titl: xtitle }],
-    ["Подкраска сечений "+ytitle+"<br/><br/>","ShaderColorS?y", { os: "y", titl: ytitle }],
+    ["Подкраска сечений "+ytitle,"ShaderColorS?y", { os: "y", titl: ytitle }],
+    ["Края сечений<br/><br/>","ShaderClipHilite", {}],
     
     ["Убрать черный","ShaderBlack", { }],
     ["Накоплять фон","FeatureKeepBkg", { }],
