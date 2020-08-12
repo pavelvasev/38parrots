@@ -2,6 +2,7 @@ ShaderConfig 1.0 ShaderConfig.qml
 ShaderScale 1.0 ShaderScale.qml
 ShaderClip 1.0 ShaderClip.qml
 ShaderClipS 1.0 ShaderClipS.qml
+ShaderClipScreen 1.0 ShaderClipScreen.qml
 ShaderBlack 1.0 ShaderBlack.qml
 ShaderBoxer 1.0 ShaderBoxer.qml
 ShaderShift 1.0 ShaderShift.qml

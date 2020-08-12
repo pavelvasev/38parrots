@@ -42,7 +42,8 @@ GroupBox {
     
     ["Отсечение "+ztitle,"ShaderClip?z", { os: "z", titl: ztitle }],
     ["Отсечение "+xtitle,"ShaderClip?x", { os: "x", titl: xtitle }],
-    ["Отсечение "+ytitle + "<br/><br/>","ShaderClip?y", { os: "y", titl: ytitle }],
+    ["Отсечение "+ytitle,"ShaderClip?y", { os: "y", titl: ytitle }],
+    ["Отсечение к экрану<br/><br/>","ShaderClipScreen", {}],
     
     ["Серия "+ztitle,"ShaderClipS?z", { os: "z", titl: ztitle }],
     ["Серия "+xtitle,"ShaderClipS?x", { os: "x", titl: xtitle }],
