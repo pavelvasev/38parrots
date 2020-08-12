@@ -1,0 +1,71 @@
+#### include ../*.cm
+
+#### scene_title
+"Trek"
+
+#### params
+<group>
+  <computing_mode>
+  <param name="afile" files="1">
+    <resolved> "./Symm-20-80.Treki.csv" </resolved>
+  </param>
+  <param name="trekN">
+    <attr name="values">
+      <arrconcat>
+        "---"
+        <getdiffvalues>
+          <V.N/>
+        </getdiffvalues>
+      </arrconcat>
+    </attr>
+  </param>
+  <computing_mode>
+</group>
+
+#### V
+<load_csv>
+  <getparam name="afile"/>
+</load_csv>
+
+##### fil
+<filterbynum>
+  <V.N/>
+  <getparam name="trekN"/>
+  <tdata.0/>
+</filterbynum>
+
+##### visual
+<group>
+  <vis creative_points="1" radius="1.25">
+    <fil> <V.X/> </fil>
+    <fil> <V.Y/>  </fil>
+    <fil> <V.Fi/> </fil>
+  </vis>
+</group>
+
+```
+#### setup
+<log>
+  <V.X/>
+</log>
+```
+
+#### getdiffvalues.txt
+function (arr) {
+  var a = {};
+  for (var i=0; i<arr.length; i++)
+    a[ arr[i] ] = 1;
+  //return ["---"].concat( Object.keys( a ).sort() );
+  return Object.keys( a ).sort( function (a, b) {  return a - b;  } ); // сортировка чисел, просто .sort() им мало
+}
+
+#### filterbynum.txt
+function (nums,current,arr) {
+  if (current == "---") return arr;
+  var acc = [];
+  for (var i=0; i<arr.length; i++) {
+    if (nums[i] == current)
+      acc.push( arr[i] );
+  }
+  return acc;
+}

@@ -1,0 +1,60 @@
+#### include ../*.cm
+#### include load_vrml.cm
+
+#### scene_title
+"VRML"
+
+#### params
+<group>
+  <computing_mode>
+  <param name="afile" file="1">
+    <!-- <resolved> "./Symm-100.vrml" </resolved> -->
+    <resolved> "https://viewlang.ru/dubins/data/2-asymm-1pi-8pi/aSymm-100.vrml" </resolved>
+  </param>
+  <computing_mode>
+</group>
+
+#### V
+<load_vrml>
+  <getparam name="afile"/>
+</load_vrml>
+
+##### cshaders
+<shader_konv>
+  <V.maxcoord/>
+  0
+</shader_konv>
+
+##### visual
+<group>
+<vis creative_points="1" radius="0.25">
+  <V.x/> <V.y/> <V.z/>
+  <attr name="colors">
+    <V.colors/>
+  </attr>
+</vis>
+
+<vis creative_mesh="1" flat="true">
+  <V.x/> <V.y/> <V.z/>
+  <attr name="indices">
+    <combine>  <V.i1/> <V.i2/> <V.i3/> </combine>
+  </attr>
+  <attr name="colors">
+    <V.colors/>
+  </attr>
+</vis>
+
+</group>
+
+```
+##### setup
+<log>
+  <V.z/>
+</log>
+```
+
+``#### sceneconf.txt
+``{"params":{"show_axes":1,"cameraPos":[90.30879478282125,83.50807741344764,276.2125278135972],"cameraCenter":[-1.2225417855857,22.603682302906886,-4.047952454274123]}}
+``{"params":{"show_axes":1,"cameraPos":[213.40239665938515,96.72539694527703,80.85681641372105],"cameraCenter":[40.35254495296014,51.32087665622684,58.88117215909435],"selectshader_1":0,"shader_clip_x/p2":209.434979270935,"texture":1,"prozrachnost":100,"additive":0,"selectshader_7":0,"selectshader_9":1,"shader_color_serie_y/dolya":0.2576,"shader_color_serie_y/shag":20}}
+``{"params":{"show_axes":1,"cameraPos":[79.71116134146637,72.68221023834687,236.99234086963975],"cameraCenter":[20.999355341211835,25.301057408615314,-9.85119320180856]}}
+``{"params":{"show_axes":1,"cameraPos":[75.87652157721263,61.23329037132239,319.00958282711423],"cameraCenter":[0,0,0]}}

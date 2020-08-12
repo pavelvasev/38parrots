@@ -28,7 +28,7 @@ Scene2 {
             id: resolved_7
         
             property var output: func_resolved( input_0 )
-            property var input_0: './examples/1-running-point.cdb/data.csv'
+            property var input_0: './examples/_tutorial/1-running-point.cdb/data.csv'
         }
     }
     

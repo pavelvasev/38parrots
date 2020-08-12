@@ -1,0 +1,3 @@
+##### add_import_public.rb prepend=true @relative_public
+ctx.r = [ {:tag => :expression, :value => "import \"./../../public\"\n\n"} ].concat( [ctx.r] )
+ctx.stop2 = "relative_public"

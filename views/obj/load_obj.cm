@@ -1,0 +1,53 @@
+### include parse_obj1.cm
+`` вообще тут надо просто include parse.cm использовать чтобы локальность
+
+### load_obj!
+<field>
+
+  <col name="parsed">
+    <parse_obj>
+      <load_file>
+        <this.tdata get="0"/>
+      </load_file>
+    </parse_vrml>
+  </col>
+  
+  <proxy name="x,y,z">
+    <this.parsed/>
+  </proxy>
+  
+
+  <proxy name="i1,i2,i3">
+    <this.parsed/>
+  </proxy>  
+
+  <col name="colors">
+    <array/>
+  </col>
+
+  <col name="maxcoord">
+  
+    <arrmax>
+      <arrabs>
+        <combine> <this.x/> <this.y/> <this.z/> </combine>
+      </arrabs>
+    </arrmax>
+  </col>
+
+</field>
+
+#### uncombine3.txt!
+function (arr) {
+  console.log("u3 called: ",arr);
+ if (!arr || arr.length == 0) return [ [],[],[] ];
+ var acc = { x:[], y:[], z:[] };
+ var pts = arr;
+ for (var j=0; j< pts.length; j+= 3) { 
+      acc.x.push( pts[j] );
+      acc.y.push( pts[j+1] );
+      acc.z.push( pts[j+2] );
+    } 
+  
+ return [ acc.x, acc.y, acc.z ]
+}
+

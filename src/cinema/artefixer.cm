@@ -1,0 +1,102 @@
+```
+Предназначение: предоставить функцию, которая по входам:
+- строчка артефактов из csv-файла
+- список всех файлов (возможно 1 csv, возможно 1 csv + локально указанные)
+- путь к цсв-файлу (для рассчета его каталога)
+будет уметь выдавать строчку артефактов с выровненными абсолютными путями 
+(т.е. относительно csv дополненные) или возможно с file-объектами.
+
+Возможно, стоило сделать это путем просто преобразования csv-файла. Но уже сделано так.
+```
+
+`` Конечно я молодец, вот сделал это на cm-языке
+`` но может уже на qml это стоило делать?
+
+```
+<load src="artefixer.cm">
+  <getparam name="cinema_params" attr="artefacts"/>
+  <getparam name="cinemafile"/>
+  <datacsv/>
+</load>
+```
+
+#### artefacts
+<this.tdata.0/>
+
+#### all_files
+<this.tdata.1/>
+
+#### datacsv_file
+<this.tdata.2/>
+
+#### makedict.txt
+function (arr) {
+  var res = new Object();
+  for (var i=0; i<arr.length; i++) {
+    if (!arr[i].name) continue;
+    res[ arr[i].name ] = arr[i];
+  }
+  return res;
+}
+
+#### basepath.txt
+function (filepath) {
+  console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! basepath for ",filepath );
+  if (filepath.lastIndexOf)
+    return filepath.slice( 0, filepath.lastIndexOf("/")+1 );
+  return "";
+}
+
+#### generate_artefact_paths.txt
+```
+входы:
+  artefacts_arr это то что надо обработать
+  input_files это словарь всех входных файлов
+  datacsv_file это базовый путь к csv-файлу или его объект
+выход:
+  исправленный artefacts_arr:
+  * если очередной элемент это относительный путь, то дополнить его до datacvf_file-пути
+  * если очередной элемент это относительный путь, а datacsv_file это объект-файл,
+      то найти в input_files файл, соответствующий этому относительному пути
+  * если очередной элемент это абсолютный путь, то и Бог с ним
+```
+function (artefacts_arr,input_files,datacsv_basepath) {
+  console.log("generate_artefact_paths",artefacts_arr,input_files,datacsv_basepath );
+  
+  var fix1 = function( item ) {
+    if (typeof(item) != "string") {
+      console.error("aretfixer::generate_artefact_paths: typeof item is not string",typeof(item),item);
+      return "";
+    }
+    if (item[0] == "/") return item;
+    if (item.match(/\w+\:\/\//)) return item; есь :// значит не наш клиент
+    if (item[0] == "." && item[1] == "/") item = item.substring( 2 );
+    // теперь item это гарантированно - относительный путь безо всяких там ./
+    // так, у нас локальные файлы? если да - вернем их
+    if (input_files[ item ]) return input_files[ item ];
+    // иначе (если даже и локальные файлы но их там нет.. ну вернем чего-нибудь
+    return datacsv_basepath + item;
+  }
+  
+  var res= artefacts_arr.map( function(item) { return fix1(item) });
+  console.log("res=",res);
+  
+  /*
+  // кряк
+  setTimeout( function() {
+    output=res;
+  }, 5 );
+  return output;
+  */
+  
+  return res;
+}
+
+
+`` собственно функция которую надо вызывать
+#### go
+<generate_artefact_paths>
+  <artefacts/>
+  <makedict> <all_files/> </makedict>
+  <basepath> <datacsv_file/> </basepath>
+</generate_artefact_paths>

@@ -1,0 +1,103 @@
+#### include ../*.cm
+
+#### scene_title
+"Obj"
+
+#### include load_obj.cm
+`` высад - если инклюда нет, оно все-равно работает..
+
+#### params
+<group>
+  <computing_mode>
+  <param name="afile" file="1">
+    <resolved> "http://viewlang.ru/objs/data/38examples/9-dubins-obj/dubins_-05_m_l_0_pi_scaled_3.5.obj" </resolved>
+<!--    <resolved> "./dubins_-1_m_l_0_3pi_scaled_3.5.obj" </resolved>-->
+  </param>
+  <computing_mode>
+</group>
+
+#### V
+<load_obj>
+  <getparam name="afile"/>
+</load_obj>
+
+##### cshaders
+<shader_konv>
+  <V.maxcoord/>
+  0
+</shader_konv>
+
+##### visual
+<group>
+<vis creative_points="1" radius="0.25">
+  <V.x/> <V.y/> <V.z/>
+
+<!--  <attr name="shaders">
+    <cshaders/>
+  </attr>
+-->
+</vis>
+
+<vis creative_mesh="1" flat="1">
+  <V.x/> <V.y/> <V.z/>
+  <attr name="indices">
+    <combine> <V.i1/> <V.i2/> <V.i3/>
+    </combine>
+  </attr>
+<!--  
+  <attr name="shaders">
+    <cshaders/>
+  </attr>
+-->  
+</vis>
+
+
+```
+##### setup
+<log>
+  <V.parsed/>
+  <V.x/>
+  <V.y/>
+  <V.z/>
+</log>
+```
+
+##### sceneconf.yaml
+params:
+  cameraCenter:
+    - -0.5447526706403544
+    - -0.0801515077588314
+    - 0.8736028449724806
+  cameraPos:
+    - 6.551260033485626
+    - 3.226836362021615
+    - 10.640426438365177
+  extras/AutoScale/masshtab: 0.7320508075688774
+  extras/ShaderClipS_z/dolya: 1
+  extras/ShaderClipS_z/shag: 3.8
+  extras/onoff_AutoScale: 1
+  extras/onoff_ShaderClipS_z: 1
+  presets:
+    - title: Примеры
+      variants:
+        - params:
+            afile:
+              - 'http://viewlang.ru/objs/v2/dubins_-05_m_l_0_pi_scaled_3.5.obj'
+          title: dubins_-05_m_l_0_pi_scaled_3.5
+        - params:
+            afile:
+              - 'http://viewlang.ru/objs/v2/dubins_-1_m_l_0_3pi_scaled_3.5.obj'
+          title: dubins_-1_m_l_0_3pi_scaled_3.5
+        - params:
+            afile:
+              - 'http://viewlang.ru/objs/v2/dubins_-1_m_l_0_3pi_scaled_3.5_reore.obj'
+          title: dubins_-1_m_l_0_3pi_scaled_3.5_reore
+  radius: 0
+  show_axes: 0
+
+
+``#### sceneconf.txt
+``{"params":{"show_axes":1,"cameraPos":[90.30879478282125,83.50807741344764,276.2125278135972],"cameraCenter":[-1.2225417855857,22.603682302906886,-4.047952454274123]}}
+``{"params":{"show_axes":1,"cameraPos":[213.40239665938515,96.72539694527703,80.85681641372105],"cameraCenter":[40.35254495296014,51.32087665622684,58.88117215909435],"selectshader_1":0,"shader_clip_x/p2":209.434979270935,"texture":1,"prozrachnost":100,"additive":0,"selectshader_7":0,"selectshader_9":1,"shader_color_serie_y/dolya":0.2576,"shader_color_serie_y/shag":20}}
+``{"params":{"show_axes":1,"cameraPos":[79.71116134146637,72.68221023834687,236.99234086963975],"cameraCenter":[20.999355341211835,25.301057408615314,-9.85119320180856]}}
+``{"params":{"show_axes":1,"cameraPos":[75.87652157721263,61.23329037132239,319.00958282711423],"cameraCenter":[0,0,0]}}

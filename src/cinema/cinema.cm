@@ -1,0 +1,15 @@
+`` todo перетащить сюда qml файлы?
+`` копировать их в public если используются морфизмы?
+
+#### cinema_params
+<object type="CinemaParams" id="param_emachine_cinema_params">
+  <property_set name="input"> <tdata.0/> </property_set>
+</object>
+
+#### cinema_views
+<object type="CinemaViews" id="cinema_views">
+  <computing_mode>
+    <property_set name="artefact_col_names"> <tdata.0/> </property_set>
+    <property_set name="artefacts"> <tdata.1/> </property_set>
+  </computing_mode>
+</object>

@@ -1,0 +1,105 @@
+### include parse_vrml.cm
+
+### load_vrml!
+<field>
+
+  <col name="parsed">
+    <parse_vrml>
+      <load_file>
+        <this.tdata get="0"/>
+      </load_file>
+    </parse_vrml>
+  </col>
+  
+  <col name="shapes">
+    <vrml2shapes> <this.parsed/> </vrml2shapes>
+    `` идея - параметризовать эту вещь еще дополнительно перечнем шейпов - и будет счастье
+    `` с точки зрения выбора что рисовать
+  </col>
+
+  <proxy name="x,y,z">
+    <shapes2xyz><this.shapes/></shapes2xyz>
+  </proxy>
+  
+  <col name="colors">
+    <shapes2colors><this.shapes/></shapes2colors>
+  </col>
+
+  <proxy name="i1,i2,i3">
+    <shapes2indices><this.shapes/></shapes2indices>
+  </proxy>
+  
+  <col name="maxcoord">
+    <arrmax>
+      <arrabs>
+        <combine> <this.x/> <this.y/> <this.z/> </combine>
+      </arrabs>
+    </arrmax>
+  </col>
+
+</field>
+
+#### vrml2shapes.txt
+function (vrml) {
+  return vrml.filter( function(rec) { return rec.$TYPE == "Shape" } );
+}
+
+#### shapes2xyz.txt
+function (shapes) {
+  var acc = { x:[], y:[], z:[] };
+  
+  shapes.forEach( function(s) {
+    var pts = s.IndexedFaceSet.Coordinate.point;
+    for (var j=0; j< pts.length; j+= 3) {
+      acc.x.push( pts[j] );
+      acc.y.push( pts[j+1] );
+      acc.z.push( pts[j+2] );
+    }
+  })
+  
+  return acc;
+}
+
+####################### shapes2indices.txt
+function (shapes) {
+  var acc = { i1:[], i2:[], i3:[] };
+  var i0 = 0;
+  
+  shapes.forEach( function(s) {
+    var pts = s.IndexedFaceSet.coordIndex;
+
+    for (var j=0; j< pts.length; j+= 4) {
+      acc.i1.push( pts[j]+i0 );
+      acc.i2.push( pts[j+1]+i0 );
+      acc.i3.push( pts[j+2]+i0 );
+    }
+    
+    i0 += s.IndexedFaceSet.Coordinate.point.length/3;
+  })
+  
+  return acc;
+}
+
+
+#### shapes2colors.txt
+function (shapes) {
+  var acc = [];
+  
+  var qq = function (s,acc) { // s = shape
+    if (!s) { console.error("getshapecolorsarr: input is false!"); return acc; }
+    var c = s.Appearance.Material.diffuseColor;
+    var coords = s.IndexedFaceSet.Coordinate.point;
+    for (var j=0; j<coords.length; j+=3) {
+       acc.push( c[0] );
+       acc.push( c[1] );
+       acc.push( c[2] );
+     }
+    return acc;
+  }
+  
+  shapes.forEach( function(s) {
+    qq( s, acc )
+  })
+  
+  return acc;
+}

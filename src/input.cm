@@ -1,0 +1,124 @@
+#### V
+<parse_csv>
+  <load_file>
+    <datacsv/>
+    <!-- вот ксати, управление снаружи.. <this.data.0/> -->
+  </load_file>
+</parse_csv>
+
+#### datacsv
+``<resolved> 
+  <find_datacsv>
+    <getparam name="afile"/>
+  </find_datacsv>
+``</resolved>
+
+#### params
+<group>
+  <computing_mode>
+  <param name="afile" files="1">
+    <resolved>'./examples/_tutorial/1-running-point.cdb/data.csv'</resolved>
+  </param>
+  <cinema_params name="cp">
+    <V/>
+  </cinema_params>
+  </computing_mode>
+  <extras_bridge>
+  </extras_bridge>
+</group>
+
+### setup
+<log>
+  <V.colnames/>
+</log>
+
+### visual
+<group>
+  <cinema_views>
+    <getparam name="cinema_params" attr="artefact_col_names"/>
+    <artefixer.go/>
+``    <handler name="viewloaded"/>
+  </cinema_views>
+</group>
+
+#### include cinema/cinema.cm
+
+#### find_datacsv.txt
+function (arr) {
+  var qq = function(arr) {
+   for (var i=0; i<arr.length; i++) {
+      if (arr[i].name && arr[i].name == "data.csv") return arr[i] ;
+      if (arr[i].match && arr[i].match("data.csv")) return arr[i];
+   }
+   return "";
+  }
+  var res = qq( arr );
+  if (typeof(res) == "string") res = Qt.resolvedUrl( res ); // вот еще как
+  console.log( "find_datacsv: res=",res);
+  /* ЛаднО, у меня реально сомнения, стоит ли это сейчас здесь делать. Может и стоит, но это надо разобрать отдельно.
+     Потому что возможно реально стоит создать на уровне выше систему.
+  if (res == "") {
+    // вот здесь можно сделать авто-генерацию csv-файла.. но я не буду
+    // потому что моя новая максима говорит мне, что если из вещи можно что-то выкинуть, то надо выкинуть
+    // с другой стороны - а что мы делаем? просмотрщик? просмотрщик чего? синема файла? или синема-файла и всего чего только можно?
+    // вообще по уму - только синема-файла. Потому что не-синема это мы сделаем потом, с воркспейсами когда заморочимся..
+    // но конечно интересно попробовать хотя бы..
+    var autogenerate = function( arr ) {
+      var count = 0;
+      var names = { autoN: 1 };
+      var res = { autoN: [] };
+      
+      var fname1 = arr[0].name;
+      var extname = fname1.substring( fname1.lastIndexOf(".")+1 );
+      var colname = "FILE_"+extname+"_auto";
+      // ну сделаем по-простому: всех в ряд.
+      res[colname] = [];
+      
+      for (var i=0; i<arr.length; i++) {
+        res[colname].push( arr[i] );
+        res['autoN'].push( i );
+      }
+      
+      res.colnames = ["autoN",colname];
+      res = { 'blob' : res }
+      return res;
+    }
+    
+    
+    console.log("res is empty, generating");
+    res = autogenerate( arr );
+    console.log("generated",res );
+  }
+  */
+  ///console.log(arr);
+  //return arr[0];
+  return res;
+}
+
+##### artefixer
+`` очевидно не хватает уже загрузки из самоего себя.. в том плане чтобы прямо в файле artefixer.cm определить сей метод
+`` в том плане что аз есмь поле из последющего.. и так пять раз.. (ну т.е. несколько полей в файле). (это к вопросу о формате..)
+`` на 1 уровень можем статичные методы себе позволить придумать разметки
+<load src="cinema/artefixer.cm">
+  <getparam name="cinema_params" attr="artefacts"/>
+  <getparam name="afile"/>
+  <datacsv/>
+</load>
+
+#### extras_bridge
+<object type="ExtrasBridge">
+  <property_set name="cinemaViews" value="cinema_views"/>
+  <property_set name="masterExtrasManager" value="local_extras_manager"/>
+</object>
+
+```
+#### extras.rb
+## ctx.r=[ ["Послойные добавки2","AllowSliceExtras"] ]
+```
+
+#### sceneconf.yaml
+params:
+  show_axes: 1
+
+### scene_title
+<datacsv/>
