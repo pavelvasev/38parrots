@@ -3,6 +3,8 @@ ShaderScale 1.0 ShaderScale.qml
 ShaderClip 1.0 ShaderClip.qml
 ShaderClipS 1.0 ShaderClipS.qml
 ShaderBlack 1.0 ShaderBlack.qml
+ShaderBoxer 1.0 ShaderBoxer.qml
+ShaderShift 1.0 ShaderShift.qml
 FeatureKeepBkg 1.0 FeatureKeepBkg.qml
 ShaderUser 1.0 ShaderUser.qml
 ShaderColorS 1.0 ShaderColorS.qml

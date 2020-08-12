@@ -35,10 +35,15 @@ GroupBox {
   property var types: input_1.concat( mytypes ).concat( input_api ).concat( input_api2 )
   
   property var mytypes: [
+    ["Сдвиг","ShaderShift"],
+    ["Масштаб","ShaderScale"],
+    ["Автомасштаб","AutoScale", { tag: "left" }],
+    ["Вписать<br/><br/>","ShaderBoxer", { tag: "left" }],
+    
     ["Отсечение "+ztitle,"ShaderClip?z", { os: "z", titl: ztitle }],
     ["Отсечение "+xtitle,"ShaderClip?x", { os: "x", titl: xtitle }],
-    ["Отсечение "+ytitle,"ShaderClip?y", { os: "y", titl: ytitle }],
-    ["Масштабы<br/><br/>","ShaderScale"],
+    ["Отсечение "+ytitle + "<br/><br/>","ShaderClip?y", { os: "y", titl: ytitle }],
+    
     ["Серия "+ztitle,"ShaderClipS?z", { os: "z", titl: ztitle }],
     ["Серия "+xtitle,"ShaderClipS?x", { os: "x", titl: xtitle }],
     ["Серия "+ytitle,"ShaderClipS?y", { os: "y", titl: ytitle }],
@@ -49,7 +54,7 @@ GroupBox {
     ["Убрать черный","ShaderBlack", { }],
     ["Накоплять фон","FeatureKeepBkg", { }],
     
-    ["Автомасштаб","AutoScale", { tag: "left" }],
+    
     ["Камера: взгляд","CameraLook", { tag: "left" }],
     ["Камера: поворот<br/><br/>","CameraRotate", { tag: "left" }],
     ["Имена осей","AxesNames", { tag: "other" }],

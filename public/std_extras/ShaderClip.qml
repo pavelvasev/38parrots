@@ -91,7 +91,7 @@ Shader {
       uniform float sceneTime;
       varying vec3  qpositionOZ;
           uniform float p1;
-          uniform float p2;      
+          uniform float p2;
                   void main()
                         {
                           if (qpositionOZ.OZ < p1) discard;
