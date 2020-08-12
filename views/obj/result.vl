@@ -28,7 +28,7 @@ Scene2 {
             id: resolved_2
         
             property var output: func_resolved( input_0 )
-            property var input_0: "./dubins_-05_m_l_0_pi_scaled_3.5.obj"
+            property var input_0: "http://viewlang.ru/objs/data/38examples/9-dubins-obj/dubins_-05_m_l_0_pi_scaled_3.5.obj"
         }
     }
     

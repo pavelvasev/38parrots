@@ -41,7 +41,7 @@ Scene2 {
         property var input_2: extract_part_hitro_12.output /* moved to singletones */
         shader: [sg_obj_1.output /* moved to singletones */,final_extras_arr]
         colors: combine_8.output /* by qml-xtract.cm2 */
-        radius: 3
+        radius: 10
         radiuses: extract_part_hitro_9.output /* moved to singletones */
         positions: []
         text: scene_obj.text+' - точки'

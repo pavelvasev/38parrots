@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 Q=$(dirname "$(readlink -f "$0")")
 
