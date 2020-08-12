@@ -38,7 +38,7 @@ Shader {
     min: 0
     max: pcoef
     step: pcoefstep
-    value: pcoef/10
+    value: pcoef/10.0
     text: "Шаг"
     enableSliding: true
     property var enableScopeDuplicated: true

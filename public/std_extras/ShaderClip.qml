@@ -26,6 +26,7 @@ Shader {
   property var tag: "right"
   
   property var pcoefstep: pcoef > 1000 ? 10 : (pcoef > 100 ? 1 : 0.1)
+//  onPcoefstepChanged: console.log("ShaderClip: pcoefstep=",pcoefstep);
   
   GroupBox {
   
@@ -52,7 +53,7 @@ Shader {
     id: pp2
     min: 0
     max: 2*pcoef
-    step: pcoef/1000
+    step: pcoefstep
     value: 2*pcoef
     text: "p2"
     enableSliding: true    
