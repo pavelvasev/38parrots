@@ -18,7 +18,16 @@ GroupBox {
   }
   
   property var artefact_col_names: cp.artefact_names
-  property var artefacts: find_possible_values( cp.param_names.length, cp.selected_param_values, cp.dict )
+  
+  //property var artefacts: find_possible_values( cp.param_names.length, cp.selected_param_values, cp.dict )
+  // делаем вычисление отложенным, т.к. при смене файла все эти входы поэтапно меняются
+  property var artefacts: []
+  DeferredCalc {
+    func: find_possible_values
+    params:[cp.param_names.length, cp.selected_param_values, cp.dict]
+    targetProperty: "artefacts"
+    target: cp
+  }
   
   property var output: {
     return { 'artefact_col_names' : cp.artefact_col_names, 'artefacts' : cp.artefacts };

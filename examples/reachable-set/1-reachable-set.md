@@ -4,11 +4,12 @@ Reachable set for Dubins car is a mathematical object that represents area in 3d
 where the Dubins car could reach at a given moment. It is both theoretically interesting
 and practically useful for robotics, aeronautics, and many other areas.
 
-[V. S. Patsko scientific group](http://sector3.imm.uran.ru/index_eng.html) in N.N. Krasovksii Institute of Mathematics and Mechanics 
-of the Ural's branch of Russian Academy of Sciences perform research on mathematician areas which include Dubins car model for many years. 
+[V. S. Patsko scientific group](http://sector3.imm.uran.ru/index_eng.html) in N.N. Krasovksii Institute of Mathematics and Mechanics of the Ural's branch of Russian Academy of Sciences perform research on mathematician areas which include Dubins car model for many years. 
 
 The listed serie of tasks and core visualization techniques were provided by **V. S. Patsko and A. A. Fedotov**
-and are dedicated to computations on Dubins car model.
+and are dedicated to computations on Dubins car model. 
+
+Tasks solutions were performed by [Computer visualization lab at N.N. Krasovskii Institute](http://www.cv.imm.uran.ru).
 
 ## Task
 There is a surface changing during time, given in vrml file 
@@ -51,7 +52,7 @@ With 38parrots we achieved following visualizations:
 ![](http://showtime.lact.in/resizer_st/fit/240/240//files/visual/2020-03-14/2020-03-14-at-16-53-20.png)
 ![](http://showtime.lact.in/resizer_st/fit/240/240//files/visual/2020-03-14/2020-03-14-at-16-53-56.png)
 
-We implemented clipping and other tools as a "plugins", which might be activated by user (the Extras button). 
+We used clipping and other tools as a "plugins", which might be activated by user (the Extras button). 
 These tools are now added to core of 38parrots and are available for all users of all tasks. 
 
 The result of applying of these tools is visible on following pictures.
@@ -72,7 +73,7 @@ We account our solution as successful.
 Then we moved towards [next task](2-tracks-for-reachable-set.md), where we have added visualization of motion tracks of points of interest.
 
 ---
-The data and images provided on this page are (c) V. S. Patsko and A. A. Fedotov.
+The data and images provided on this page are (c) 2020 V. S. Patsko and A. A. Fedotov.
 If you desire to refer in scientfic paper, please cite:
 > Patsko V.S., Fedotov A.A. Reachable set for Dubins car and its application to observation problem with incomplete information 
 > // Preprints of the 27th Mediterranean Conference on Control and Automation (med19), Akko, Israel, July 1-4, 2019. P. 483–488.

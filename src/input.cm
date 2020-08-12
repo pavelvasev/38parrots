@@ -122,3 +122,10 @@ params:
 
 ### scene_title
 <datacsv/>
+
+```
+#### scene
+<import_and_deploy>
+  "public.src"
+</import_and_deploy>
+```

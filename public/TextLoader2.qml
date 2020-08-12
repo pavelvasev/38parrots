@@ -1,4 +1,5 @@
 Item {
+    id: ldr
 
     property var input_0: "not-overrided"
     property var input_1: undefined
@@ -19,6 +20,8 @@ Item {
 
     signal loaded( string loadedFile, string loadedOutput );
     
+    property var textLoaderIterations: findRootScene( ldr ).textLoaderIterations
+    onTextLoaderIterationsChanged: go();
     
     onFileChanged: go();
     onEnabledChanged: go();
@@ -145,7 +148,8 @@ function loadFileBase( file_or_path, istext, handler, errhandler ) {
             xhr.responseType = istext ? 'text' : 'arraybuffer';
 
             xhr.onload = function(e) {
-                //console.log("xhr loadFileBase onload fired",file_or_path);            
+                //console.log("xhr loadFileBase onload fired",file_or_path,e);
+                //console.log("this=",this);
                 // response is unsigned 8 bit integer
                 //var responseArray = new Uint8Array(this.response);
                 setFileProgress( file_or_path,"parsing");
@@ -163,7 +167,24 @@ function loadFileBase( file_or_path, istext, handler, errhandler ) {
                   return;
                 }*/
 
-                setFileProgress( file_or_path );
+//setFileProgress( file_or_path );
+
+                var iserr = this.status == 404 || !this.response;
+                if (!iserr) {
+                  setFileProgress( file_or_path, "loaded" );
+                  setTimeout( function() {
+                    setFileProgress( file_or_path );
+                  }, 500 ); // не сразу убирать сообщение
+                } else {
+                  console.log("xhr load error (soft)");
+                  console.log("xhr object=",this);
+                  console.log("event=",e);
+                  setFileProgress( file_or_path, "RESPONSE ERROR" );
+                  setTimeout( function() {
+                    setFileProgress( file_or_path );
+                  }, 25000 ); // не сразу убирать сообщение                
+                }
+                
             };
 
             xhr.onerror = function(e) {

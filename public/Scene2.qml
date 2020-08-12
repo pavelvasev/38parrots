@@ -18,8 +18,8 @@ Scene {
     property var tag_priority: 10
     id: bgcparam
     onColorChanged: { 
-      if (visible && parent) { // хакобаг
-        console.log("SETTING BG COLOR");
+      if (visible && parent && scena.isRoot) { // хакобаг двойной - проверка на parent и дублирование scena.isRoot.. иначе qmlweb не досчитывает - можно повыяснять почему
+        // console.log("SETTING BG COLOR",color,scena.isRoot);
         scena.backgroundColor = color; 
       }
     }
@@ -64,4 +64,7 @@ Scene {
     id: psm
   }
   property var sceneconf: undefined
+  
+  ////
+  property var textLoaderIterations: 0
 }
