@@ -83,7 +83,7 @@ Column {
             
             ParamUrlHashing {
               name: scopeNameCalc.globalName
-              onNameChanged: console.log("PUH name=",name );
+              // onNameChanged: console.log("PUH name=",name );
               id: hasher
               property: "visible"
             }
