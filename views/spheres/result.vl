@@ -6,8 +6,15 @@ Scene2 {
     id: scene_obj
 
 
+    ///////////////// visuals api
+    
+    property var visuals: [visual_1]
+    
+    ///////////////// visuals api done
+    
     ///////////////// params api
     
+    property var params: [param_emachine_afile]
     property var afile: param_emachine_afile
     
     ///////////////// params api done
@@ -34,7 +41,7 @@ Scene2 {
     
     Spheres {
         
-        id: obj_0
+        id: visual_1
     
         property var input_0: extract_part_hitro_10.output /* moved to singletones */
         property var input_1: extract_part_hitro_11.output /* moved to singletones */
@@ -42,11 +49,12 @@ Scene2 {
         colors: combine_8.output /* by qml-xtract.cm2 */
         radius: 3
         radiuses: extract_part_hitro_9.output /* moved to singletones */
+        visible: scene_obj.visible
         positions: []
         shader: [final_extras_arr]
         DeferredCalc {
             
-            id: obj_2
+            id: obj_1
         
             targetProperty: "positions"
             func: combine_arrays
@@ -63,7 +71,7 @@ Scene2 {
             property var input_2: extract_part_hitro_7.output /* moved to singletones */
             DeferredCalc {
                 
-                id: obj_1
+                id: obj_0
             
                 targetProperty: "output"
                 func: func_combine
@@ -97,12 +105,12 @@ Scene2 {
         id: parse_csv_4
     
         property var output: func_parse_csv( input_0,input_1 )
-        property var input_0: obj_3.output /* by qml-xtract.cm2 */
+        property var input_0: obj_2.output /* by qml-xtract.cm2 */
         property var input_1: ","
     
         TextLoader2 {
             
-            id: obj_3
+            id: obj_2
         
             property var input_0: resolved_3.output /* by qml-xtract.cm2 */
         

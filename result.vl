@@ -8,8 +8,15 @@ Scene2 {
     id: scene_obj
 
 
+    ///////////////// visuals api
+    
+    property var visuals: []
+    
+    ///////////////// visuals api done
+    
     ///////////////// params api
     
+    property var params: [param_emachine_afile]
     property var afile: param_emachine_afile
     
     ///////////////// params api done

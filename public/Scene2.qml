@@ -9,6 +9,9 @@ Scene {
         #infoDark, fieldset legend {
           color: #fff;  mix-blend-mode: difference;
         }
+        .CheckBoxParam {
+          color: #000;
+        }
     </style>"
   }
   

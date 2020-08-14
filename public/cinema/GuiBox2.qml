@@ -1,7 +1,7 @@
 // Предназначение - показать набор элементов гуи
-// 1 набор A выбирается из массива input - выбираются только элементы соответствующие crit
-// 2 для каждого `a` из A рисуется кнопка
-// 3 по нажатию на эту кнопку показывается гуи `a`
+// 1 для каждого элемента набора рисуется кнопка
+// 2 по нажатию на эту кнопку показывается содержимое`a`
+// 3 фзаголовок для кнопки берется из проперти .title
 
 // два вида гуи на текущий момент:
 // - элемент сам по себе
@@ -12,24 +12,13 @@ Column {
   id: mainco
   
   spacing: 2 // промежуток между различными гуи
-  
 
   property var input: []
-  
-//  function crit(item) {
-//    return false;
-//  }
-  
-  // todo сделать критерий функций. мб оформить как сигнал. или как функцию которую будут оверрайдить
-
-  property var myarr: {
-    var res = input.filter( mainco.crit );
-//    console.log("guibox crit=",crit,"myarr=",res);
-    return res;
-  }
+  // набор item-ов которые представляют гуи для добавки
+  // причем каждый итем
 
       Repeater {
-        model: myarr.length
+        model: input.length
 
         Column {
           id: outerco
@@ -41,7 +30,7 @@ Column {
             //width: 200
             //left: 20
             
-            property var item: myarr[ index ]
+            property var item: input[ index ]
             
             function isdlg() { return !!item.open; }
             
@@ -50,7 +39,7 @@ Column {
               var q = (item.title || "кнопка");
               var q2= q.replace( /<[^]+>/,"" );
               if (!co1.visible) q2 = q2 + "..";
-              
+              q2="&gt;&nbsp;"+q2;
               return q2;
               //if (q.indexOf("<") >= 0) return q.substr( 0,q );
               //return q;

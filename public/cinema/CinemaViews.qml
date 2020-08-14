@@ -9,16 +9,16 @@ Item {
   
   signal viewLoaded( object view );
   
-  property var tag: "left"
+  //property var tag: "left"
   
   property var input: { 
     return {}
   }
-  onInputChanged: console.log("qq",input );
+  //onInputChanged: console.log("qq",input );
   
   property var artefact_col_names: []
   property var artefacts: []
-  
+
   Item {
     id: loaderholder
     
@@ -30,19 +30,17 @@ Item {
         source: find_artefact_viewer( artefact_col_names[index], artefacts[index] )
         
         property var scopeName: colname // важный параметр, означающий что суб-параметры этих сцен должны быть в этом scopeName-имени тусоваться; включая добавки вложенных сцен.
-        
-/*        CheckBoxParam {
-          text: ldr.colname
-        }        
-*/        
+        property var title: colname
         
         onItemChanged: {
           //console.log("loader item changed!!!!!!");
           if (item) {
-            item.afile.text = colname;
+            item.afile.text = ""; //colname;
             item.afile.ahasher.enabled = false; // отключаем сохранение параметров в урли
             item.afile.atabview.visible = false; // отключаем выбор файла - уже не надо (я считаю)
+            item.afile.atabview.height = 0;
             item.text = colname.replace("FILE_",""); // текст сцены
+            item.title = item.text;
             
             cv.viewLoaded( item );
 
@@ -99,27 +97,54 @@ Item {
     views = res;
   }
 
-  
-  ////////////////
-  /*
-  CheckBoxParam {
-    text: "Добавки всех слоёв"
-    property var tag: "right"
-    width: 200
-  }*/
-  
-  /*
+
   GroupBox {
-    text: "Вкл-выкл"
-    Repeater {
-      id: rep
-      model: artefact_col_names.length
-      Param {
-        text: colname
-        property var colname: artefact_col_names[index]
+    title: "Артефакты"
+    property var tag: "left"
+    GuiBox2 {
+    input: {
+      var acc = [];
+      var m2 = rep2.model;
+      for (var i=0; i<m2; i++) {
+        var item = rep2.itemAt( i );
+        if (!item) break;
+        acc.push( item );
       }
+      return acc;
+    }
+    //dasiface.children.filter( function(c) { return !!c.title; } )
     }
   }
-  */
+  
+  Item {
+    id: dasiface
+    Repeater {
+      id: rep2
+      model: views.length
+      
+      Column {
+        id: dascol
+        property var myview: views[index]
+        property var title: myview.title
+        CheckBoxParam {
+          width: 150
+          text: "Отображать"
+          guid: "visible_"+myview.title
+          onValueChanged: { 
+            var u = myview;
+            console.log("ee va=",value, "setting to u=",u );
+            u.visible = value > 0;
+          }
+        }
+        // перетаскиваем параметры
+        Component.onCompleted: {
+          myview.params.forEach( function(p) {
+            p.parent = dascol;
+            //p.tag = undefined;
+          } );
+        }
+      }
+    }  
+  }
 
 }

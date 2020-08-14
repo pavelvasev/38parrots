@@ -6,8 +6,15 @@ Scene2 {
     id: scene_obj
 
 
+    ///////////////// visuals api
+    
+    property var visuals: [visual_1,visual_2]
+    
+    ///////////////// visuals api done
+    
     ///////////////// params api
     
+    property var params: [param_emachine_afile]
     property var afile: param_emachine_afile
     
     ///////////////// params api done
@@ -34,19 +41,20 @@ Scene2 {
     
     CreativePoints {
         
-        id: obj_0
+        id: visual_1
     
         property var input_0: extract_part_hitro_8.output /* moved to singletones */
         property var input_1: extract_part_hitro_9.output /* moved to singletones */
         property var input_2: extract_part_hitro_10.output /* moved to singletones */
         colors: shapes2colors_6.output /* moved to singletones */
         radius: 0.25
+        visible: scene_obj.visible
         positions: []
         text: scene_obj.text+' - точки'
         shader: [final_extras_arr]
         DeferredCalc {
             
-            id: obj_1
+            id: obj_0
         
             targetProperty: "positions"
             func: combine_arrays
@@ -56,7 +64,7 @@ Scene2 {
     
     CreativeTrimesh {
         
-        id: obj_2
+        id: visual_2
     
         property var input_0: extract_part_hitro_8.output /* moved to singletones, second use */
         property var input_1: extract_part_hitro_9.output /* moved to singletones, second use */
@@ -64,12 +72,13 @@ Scene2 {
         colors: shapes2colors_6.output /* moved to singletones, second use */
         flat: true
         indices: combine_15.output /* by qml-xtract.cm2 */
+        visible: scene_obj.visible
         text: scene_obj.text+' - поверхность'
         positions: []
         shader: [final_extras_arr]
         DeferredCalc {
             
-            id: obj_4
+            id: obj_2
         
             targetProperty: "positions"
             func: combine_arrays
@@ -86,7 +95,7 @@ Scene2 {
             property var input_2: extract_part_hitro_14.output /* moved to singletones */
             DeferredCalc {
                 
-                id: obj_3
+                id: obj_1
             
                 targetProperty: "output"
                 func: func_combine
@@ -120,11 +129,11 @@ Scene2 {
         id: parse_vrml_4
     
         property var output: func_parse_vrml( input_0 )
-        property var input_0: obj_5.output /* by qml-xtract.cm2 */
+        property var input_0: obj_3.output /* by qml-xtract.cm2 */
     
         TextLoader2 {
             
-            id: obj_5
+            id: obj_3
         
             property var input_0: resolved_3.output /* by qml-xtract.cm2 */
         

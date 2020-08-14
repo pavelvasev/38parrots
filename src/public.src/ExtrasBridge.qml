@@ -8,7 +8,7 @@ Item {
   
   function onviewloaded( view ) 
   {
-    console.log( "EMM: onviewloaded",view.text );
+    // console.log( "EMM: onviewloaded",view.text );
     view.external_extras_manager = masterExtrasManager;
     view.local_extras_manager.enabled = enableAll;
     view.local_extras_manager.visible = enableAll;
