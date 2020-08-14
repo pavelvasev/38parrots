@@ -12,13 +12,8 @@ Shader {
   
   property var orbitControl: shader1.scene.cameraControlC.sceneControl
   
-  GroupBox {
-  
-    title: "Камера"
-    property var tag: "right"
-    
-    Column {
-      Button {
+
+  Button {
         text: "Посмотреть на объект"
         width: 180
         onClicked: {
@@ -31,16 +26,12 @@ Shader {
           //console.log("scene is",s);
           //console.log("cc is ",s.cameraControlC );
           //console.log("ccc is ",s.cameraCenter );
-          
+
           //console.log("assigned",scene,scene.cameraCenter);
           //scene.cameraControlC.centerPoint = c;
           //cameraCenter
         }
-      }
+  }
 
-    } // col
-  
-  } //grp
-  
 
 }

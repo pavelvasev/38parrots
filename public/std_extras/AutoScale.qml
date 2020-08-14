@@ -10,24 +10,20 @@ Shader {
   
   property var tag: "right"
   
-  function copyScales() {
-    var s = pp1.value;
+  function copyScales(sca) {
+    return;
+    
+    var s = sca || pp1.value;
+    
     var objs = objects;
     for (var i=0; i<objs.length; i++) {
       objs[i].scale = s;
-      // console.log("copied scale s",s,"to obj",objs[i]);
+      //console.log("copied scale s",s,"to obj",objs[i]);
     }
   }
   
   onObjectsChanged: copyScales();
   
-  GroupBox {
-  
-    title: "Авто-масштаб"
-    property var tag: "right"
-    
-    Column {
-    
   Param {
     id: pp1
     min: 0.0001
@@ -53,16 +49,11 @@ Shader {
     }
   }
   
-    } // col
-  
-  } //grp
-
-/*
   property var vertex: "
           // your things
           uniform float sceneTime;
           uniform float p1;
-          
+
           void main()
           {
             gl_Position.x = gl_Position.x *p1;
@@ -70,5 +61,6 @@ Shader {
             gl_Position.z = gl_Position.z *p1;
           }
         "
-*/        
+  
+
 }

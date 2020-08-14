@@ -22,13 +22,6 @@ Shader {
   
   property var pcoefstep: pcoef > 1000 ? 10 : (pcoef > 100 ? 1 : 0.1)
   
-  GroupBox {
-  
-    title: "Края сечений"
-    property var tag: "right"
-    
-    Column {
-    
   Param {
     id: pp1
     min: 0
@@ -41,11 +34,6 @@ Shader {
     textEnabled: true
     comboEnabled: false
   }
-  
-    } // col
-  
-  } //grp
-
 
   fragmentOver: true // режим смешения с базовым цветом
   fragment: "#define CLIP_EPS_HI "+ addpt(pp1.value) + "\nvoid main()\n{\n}\n"

@@ -2,29 +2,29 @@
 
 import "."
 
-GroupBox {
+Column {
   id: sc
   
   property bool enabled: true
-  
-  property var cliprange: 10 // timer внизу
-  property var timevalue: 0
-  
   property var scopeName: "extras"
+  
+  property var title: "Добавки"
   
   //onTimevalueChanged: console.log("shaderconfig tv changed",timevalue );
   
   property var tag: "right"
-  title: "Добавки"
+//  title: "Добавки"
   
 //  Embed {
 //    html: "<style> fieldset legend { color: #fff; } /*checkbox:*/ .ShaderConfig { color: #ddd; } /*params text*/  .ShaderConfig .Text span { color: #777 !important; }</style>"
 //  }
+
+  /////////////////// part 1  - интерфейс добавления добавки
   
   property var axnames: findRootScene( sc ).axes.titles
   property var xtitle: axnames[0]
-  property var ytitle: axnames[1]  
-  property var ztitle: axnames[2]  
+  property var ytitle: axnames[1]
+  property var ztitle: axnames[2]
   //property var ztitle: "Z"
   
   // таким образом добавки можно добавлять через input_1
@@ -110,7 +110,8 @@ GroupBox {
   }
   
   // маска 1-0 по колву типов
-  property var selectedshadermask: []  
+  // т.е. это функция f: номердобавки -> да/нет
+  property var selectedshadermask: []
   
   /*
    история такова что если делать список, то репитер потом совместно с loader-ом дурят
@@ -119,36 +120,38 @@ GroupBox {
    но последней каплей оказалось что onConstruction/destruction я использовал для активации фичи,
    и при смене списка он сначала вызывал очередной constr а затем у старого destr
    ну и короче поэтому теперь все на масках и лоадеры все готовы загружать
-  function rescan() {
-    var acc = [];
-    for (var i=0; i<coco.children.length; i++)
-       if (coco.children[i].guid && coco.children[i].value > 0) acc.push( coco.children[i].typeIndex );
-    selectedshaderlist = acc;
-    //console.log("rescan",acc);
-    return acc;
-  }  
- 
-  // набор номеров из types
-  property var selectedshaderlist: []
   */
 
-
   
-  //////////////////////// part 2
+  //////////////////////// part 2 - загружалка
   
   Column {
     id: shadershere
     
      Button {
-      text: "Настроить"
+      //text: sc.title + "..."
+      //text: "* " + sc.title
+      text: sc.title
       onClicked: adddlg.open()
+      width: 200
      }
-    
+     
+     Text {
+       text: " "
+       height: 5
+     }
+  
+  // итого Repeater натаскает N разных item-ом где N это кол-во возможных добавок
+  // при этом некоторые из них реально загрузятся Loader-ом
+  // эх как нам в qml не хватает "преобразователя типов".. 
+  // он на вход получает объекты, и применяет к ним заданное преобразование..
+  // например кнопочку добавляет
+  // хотя формально это наверное можно сделать как-то
+  
   Repeater {
     id: rep1
     model: sc.enabled ? types.length : 0
-    //model: selectedshaderlist.length
-    //onModelChanged: rescanitems(500);
+    
     Loader {
       id: ldr
       source: selectedshadermask[index] > 0 ? types[ index ][1] : undefined
@@ -156,24 +159,24 @@ GroupBox {
       
       property var scopeName: typeToScopeName(types[ index ]) // жили они не тужили в своем скопе
       property var enableScopeDuplicated: true
+      
+      visible: false // так будет проще для всех
+      implicitWidth: 0
+      implicitHeight: 0
+      
       onItemChanged: {
-        //console.log("thus item changed",item );
-        rescanitems(0)
-        //scene.refineSelf();
-        if (item && item.tag != sc.tag) {
-          // типа это выход за границы - значит надо вытащить из парента
-          item.oldSpaceParent = item.parent; // но для сохранения скопов надо это сохранить
+        // выкинем ка эти итемы лесом пока-что, а там вернем куды надо
+        if (item) {
+          item.oldSpaceParent = ldr; //item.parent; // но для сохранения скопов надо это сохранить
           item.parent = qmlEngine.rootObject;
-          ldr.visible = false;
         }
-        else
-          ldr.visible = true;
-        qmlEngine.rootObject.refineSelf()
-        
-        if (item) init( item ) 
+
+        rescanitems(0)
+        if (item) init( item );
         // причем этот init уже вызывается ранее лоадером итак
         // но нам надо передать ему заголовки, в противном случае пропуск получается
       }
+      
       onInit: {
         //console.log(" ~~~ init")
         var opts = types[ index ][2] || {};
@@ -184,6 +187,7 @@ GroupBox {
         obj.title = ldr.title;
         obj.extrasManager = sc;
       }
+      
       property var mparams: types[ index ][2] || {}
       onMparamsChanged: {
         //console.log(" * * * mparams",mparams, "item=", item );
@@ -219,8 +223,13 @@ GroupBox {
   property var shaders: []
   
   // а вот это нам для двидиум надо
+  // итого в shaders и output содержится то что пользователь активировал
   property var output: shaders
   
+ 
+  ////////////////////////////////////// тема cliprange и других параметров
+  property var cliprange: 10 // timer внизу
+  property var timevalue: 0
   
   /////////////////
   function getClipRangeFromThreeJs() {
@@ -255,40 +264,58 @@ GroupBox {
     return rec[1].replace(/[\W]+/g,"_"); // не буква не цифра
   }
   
-  
-  //////////////////////////////////////
-  
-  
-  property var otherArr: {
-    //console.log("filtering others... input=",output );
-    var res = output.filter( function(item) { return item.tag == "other" } );
-    //console.log("res=",res);
-    return res;
-  }
-  //  нам как бы нужно одно разное на всех..
-  GroupBox {
-    id: other
-    property var tag: "left"
-    title: "Разное " //+otherArr.length
-    //parent: qmlEngine.rootObject
-    visible: otherArr.length > 0
+  /////////////////////// Рисовалка гуев
+  GuiBox {
+    function crit(item) {
+      return item.tag == "right";
+    }
+    input: shaders
     
+    // ну ей надо там быть
+    Component.onCompleted: {
+      parent = shadershere;
+    }
+  }
+  
+  GroupBox {
+    title: "Важное"
+    visible: gbprimary.myarr.length >0
+    
+    property var tag: "left"
+    GuiBox {
+      id: gbprimary
+      function crit(item) { 
+        return item.tag == "left";
+      }
+      input: shaders
+    }
     Component.onCompleted: {
       parent = qmlEngine.rootObject
     }
-    Column {
-      id: otherco
-      padding: 2
-      
-      Repeater {
-        model: otherArr.length
-        Button {
-          property var item: otherArr[ index ]
-          text: item.title || "кнопка"
-          onClicked: item.open()
-        }
-      }
-    }
   }
 
+  GroupBox {
+    title: "Разное"
+    property var tag: "left"
+
+    visible: gbother.myarr.length >0
+    GuiBox {
+      function crit(item) {
+        return item.tag == "other";
+      }
+      id: gbother
+      input: shaders
+    }
+    Component.onCompleted: {
+      parent = qmlEngine.rootObject
+    }
+  }
+  
+  
+  // пробельчиг
+//  Text {
+//    text: " "
+//    height: 5
+//  }
+  
 }

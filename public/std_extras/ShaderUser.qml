@@ -21,14 +21,8 @@ Shader {
   property alias p2: pp2
   
   property var tag: "right"
-  
-  GroupBox {
-  
-    title: "Пользовательский "+titl
-    property var tag: "right"
-    
-    Column {
-    
+
+
   Param {
     id: pp1
     min: -pcoef
@@ -52,10 +46,6 @@ Shader {
     property var enableScopeDuplicated: true
 
   }
-  
-    } // col
-  
-  } //grp
 
   vertex: "
           uniform float sceneTime; // счетчик времени сцены, всегда растет

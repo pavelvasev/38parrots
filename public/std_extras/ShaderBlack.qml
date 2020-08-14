@@ -19,13 +19,8 @@ Shader {
   
   
   property alias p1: pp1
-  
-  GroupBox {
-  
-    title: "Убрать черный цвет"
-    property var tag: "right"
-    
-    Column {
+ 
+
   Param {
     id: pp1
     min: 0
@@ -36,13 +31,8 @@ Shader {
     guid: "p1"
     enableSliding: true
     property var enableScopeDuplicated: true
-
   }
-    
-    } // col
-  
-  } //grp
-  
+
   fragmentOver: true
 
   fragment: "

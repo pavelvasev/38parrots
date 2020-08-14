@@ -84,13 +84,7 @@ Shader {
   Component.onCompleted: timer.start();
 
   
-  GroupBox {
-  
-    title: "Вписать"
-    property var tag: shader1.tag
-    
-    Column {
-    
+
       Param {
         id: pp1
         min: 0
@@ -139,9 +133,6 @@ Shader {
       }
 */
 
-
-    } // col
-    } //grp
 
   property var vertex: "
           // your things

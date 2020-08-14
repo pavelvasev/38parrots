@@ -115,7 +115,7 @@ Rectangle {
 
                     Button {
                         width: 180
-                        text: "Указать адрес data.csv.."
+                        text: "Укажите адрес data.csv.."
                         onClicked: {
                             dialogFilesText.text = param.files && param.files.join ? param.files.join("\n") : param.file;
                             dlg.open();

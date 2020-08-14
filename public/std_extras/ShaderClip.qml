@@ -28,13 +28,7 @@ Shader {
   property var pcoefstep: pcoef > 1000 ? 10 : (pcoef > 100 ? 1 : 0.1)
 //  onPcoefstepChanged: console.log("ShaderClip: pcoefstep=",pcoefstep);
   
-  GroupBox {
-  
-    title: "Отсечение "+titl
-    property var tag: "right"
-    
-    Column {
-    
+
   Param {
     id: pp1
     min: -pcoef
@@ -62,14 +56,6 @@ Shader {
     comboEnabled: false
     
   }
-  
-    } // col
-  
-  } //grp
-
-//      property real time: scen.sceneTime
-//      property real custom1: pCustom1.value
-
 
   property var vertex_t: "
           // your things

@@ -20,13 +20,6 @@ Shader {
   
   property var tag: "right"
   
-  GroupBox {
-  
-    title: "Масштабы"
-    property var tag: "right"
-    
-    Column {
-    
   Param {
     id: pp1
     min: 0
@@ -65,11 +58,7 @@ Shader {
     textEnabled: true        
     property var enableScopeDuplicated: true
   }  
-  
-  
-    } // col
-  
-  } //grp
+ 
 
   property var vertex: "
           // your things

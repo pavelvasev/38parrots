@@ -12,14 +12,7 @@ Shader {
   
   property var orbitControl: shader1.scene.cameraControlC.sceneControl
   
-  GroupBox {
-  
-    title: "Камера: поворот"
-    property var tag: "right"
-    
-    Column {
-
-      Param {
+  Param {
         min: -1
         max: 360
         text: "Поворот тета"
@@ -48,12 +41,6 @@ Shader {
         text: "Стоп"
         onClicked: pauto.value = 0;
       }
-  
-    } // col
-    
-
-  
-  } //grp
   
   property var iControl: false
   RenderTick {

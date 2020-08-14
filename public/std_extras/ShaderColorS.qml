@@ -30,13 +30,6 @@ Shader {
   property var pcoefstep: pcoef > 1000 ? 10 : (pcoef > 100 ? 1 : 0.1)
   
   function nbsp(text) { return text.replace( / /g,"&nbsp;"); }
-  
-  GroupBox {
-  
-    title: shader1.title
-    property var tag: "right"
-    
-    Column {
     
   Param {
     id: pp1
@@ -62,13 +55,6 @@ Shader {
     enableSliding: true    
     property var enableScopeDuplicated: true
   }
-  
-    } // col
-  
-  } //grp
-
-//      property real time: scen.sceneTime
-//      property real custom1: pCustom1.value
 
 
   property var vertex_t: "

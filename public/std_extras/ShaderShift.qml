@@ -21,13 +21,6 @@ Shader {
   property alias p3: pp3
   
   property var tag: "right"
-  
-  GroupBox {
-  
-    title: "Сдвиги"
-    property var tag: "right"
-    
-    Column {
     
   Param {
     id: pp1
@@ -67,11 +60,7 @@ Shader {
     textEnabled: true        
     property var enableScopeDuplicated: true
   }  
-  
-  
-    } // col
-  
-  } //grp
+
 
   property var vertex: "
           // your things
