@@ -51,6 +51,8 @@ Column {
               var q2= q.replace( /<[^]+>/,"" );
               if (!co1.visible) q2 = q2 + "..";
               
+              q2 = "&gt;&nbsp;"+q2; // прикольнее так 
+              
               return q2;
               //if (q.indexOf("<") >= 0) return q.substr( 0,q );
               //return q;

@@ -37,7 +37,7 @@ Item {
 */        
         
         onItemChanged: {
-          console.log("loader item changed!!!!!!");
+          //console.log("loader item changed!!!!!!");
           if (item) {
             item.afile.text = colname;
             item.afile.ahasher.enabled = false; // отключаем сохранение параметров в урли
@@ -47,9 +47,9 @@ Item {
             cv.viewLoaded( item );
 
             // подцепим элементы управления
-            console.log("calling refine...");
+            //console.log("calling refine...");
             qmlEngine.rootObject.addSpace( item );
-            console.log("refined");
+            //console.log("refined");
             feed_item();
             cv.rescanviews();
           }
@@ -60,7 +60,7 @@ Item {
         
         // предназначение - передать объект файла, который надо рассматривать в этом вьювере
         function feed_item() {
-          console.log("CinemaViews: feed_item called! Ldr source=",ldr.source, "colname=",ldr.colname,"artfile=",artfile );
+          //console.log("CinemaViews: feed_item called! Ldr source=",ldr.source, "colname=",ldr.colname,"artfile=",artfile );
           if (!ldr.item) {
             console.log("CinemaViews: viewer not loaded, skipping" );
             return;
@@ -78,15 +78,15 @@ Item {
   
   function find_artefact_viewer( colname, val )
   {
-    console.log("CinemaViews:find-viewer",colname,val );
+    //console.log("CinemaViews:find-viewer",colname,val );
     var parts = colname.split("_");
     var type = parts[1]; // вот такой вот алгоритм
     var src  = "views/"+type+"/result.vl";
-    console.log(" computed viewer: ",src );
+    //console.log(" computed viewer: ",src );
     return src;
   }
   
-  onArtefact_col_namesChanged: console.log("viewer artefact_col_names=",artefact_col_names );
+  // onArtefact_col_namesChanged: console.log("viewer artefact_col_names=",artefact_col_names );
   
   property var views: []
   function rescanviews() {

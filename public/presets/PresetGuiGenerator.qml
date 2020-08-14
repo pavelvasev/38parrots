@@ -50,9 +50,9 @@ Item {
         id: txt
         onTextChanged: {
           var r = txt.dom;
-          console.log("llllllll r=",r);
+          // console.log("llllllll r=",r);
           var link = r.children[0].children[0];
-          console.log("setting up to link",link);
+          // console.log("setting up to link",link);
           link.onclick = function() {
             console.log("clicked");
             addvariant.categoryCode = catName;
