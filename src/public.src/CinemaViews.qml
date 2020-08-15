@@ -70,9 +70,7 @@ Item {
             console.log("CinemaViews: viewer not loaded, skipping" );
             return;
           }
-          if (!ldr.item.visible) {
-            return;
-          }          
+          // if (!ldr.item.visible) return;
           if (!artfile) {
             console.error("CinemaViews: warning, artefact file is emtpy.");
           }

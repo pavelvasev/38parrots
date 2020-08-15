@@ -6,6 +6,11 @@
   <param name="afile" file="1">
     <resolved> "./coords.csv" </resolved>
   </param>
+  <param name="amount" label="Загружено точек:">
+    <arrlen>
+      <V.X/>
+    </arrlen>
+  </param>
   <computing_mode>
 </group>
 

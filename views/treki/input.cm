@@ -9,6 +9,11 @@
   <param name="afile" files="1">
     <resolved> "./Symm-20-80.Treki.csv" </resolved>
   </param>
+  <param name="amount" label="Загружено точек:">
+    <arrlen>
+      <V.X/>
+    </arrlen>
+  </param>  
   <param name="trekN">
     <attr name="values">
       <arrconcat>
@@ -19,11 +24,7 @@
       </arrconcat>
     </attr>
   </param>
-  <param name="amount" label="Кол-во рисуемых точек">
-    <arrlen>
-      <fil> <V.X/> </fil>
-    </arrlen>
-  </param>
+
   <computing_mode>
 </group>
 

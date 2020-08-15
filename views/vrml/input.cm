@@ -11,6 +11,16 @@
     <!-- <resolved> "./Symm-100.vrml" </resolved> -->
     <resolved> "https://viewlang.ru/dubins/data/2-asymm-1pi-8pi/aSymm-100.vrml" </resolved>
   </param>
+  <param name="amount_pt" label="Вершин:">
+    <arrlen>
+      <V.x/>
+    </arrlen>
+  </param>
+  <param name="amount" label="Индексов:">
+    <arrlen>
+      <V.i1/>
+    </arrlen>
+  </param>
   <computing_mode>
 </group>
 
