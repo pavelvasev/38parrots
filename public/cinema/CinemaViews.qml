@@ -58,8 +58,10 @@ Item {
         onArtfileChanged: feed_item();
         
         // feature: в отключенные вьюшки не посылаем файла данных
-        property var itemActive: item && item.visible
-        onItemActiveChanged: feed_item();
+        //property var itemActive: item && item.visible
+        //onItemActiveChanged: feed_item();
+        // идея оказалась так себе - мы же bounding-sphere вовсю вычисляем на основе данных
+        // которые даже не загружаются, и это идет на вход шейдерам 
         
         // предназначение - передать объект файла, который надо рассматривать в этом вьювере
         function feed_item() {

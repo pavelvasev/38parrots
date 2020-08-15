@@ -12,12 +12,17 @@
   <param name="trekN">
     <attr name="values">
       <arrconcat>
-        "---"
+        "all"
         <getdiffvalues>
           <V.N/>
         </getdiffvalues>
       </arrconcat>
     </attr>
+  </param>
+  <param name="amount" label="Кол-во рисуемых точек">
+    <arrlen>
+      <fil> <V.X/> </fil>
+    </arrlen>
   </param>
   <computing_mode>
 </group>
@@ -61,7 +66,7 @@ function (arr) {
 
 #### filterbynum.txt
 function (nums,current,arr) {
-  if (current == "---") return arr;
+  if (current == "all") return arr;
   var acc = [];
   for (var i=0; i<arr.length; i++) {
     if (nums[i] == current)
