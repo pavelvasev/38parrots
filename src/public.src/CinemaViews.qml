@@ -48,6 +48,7 @@ Item {
             //console.log("calling refine...");
             qmlEngine.rootObject.addSpace( item );
             //console.log("refined");
+            
             feed_item();
             cv.rescanviews();
           }
@@ -56,6 +57,10 @@ Item {
         property var artfile: artefacts[index];
         onArtfileChanged: feed_item();
         
+        // feature: в отключенные вьюшки не посылаем файла данных
+        property var itemActive: item && item.visible
+        onItemActiveChanged: feed_item();
+        
         // предназначение - передать объект файла, который надо рассматривать в этом вьювере
         function feed_item() {
           //console.log("CinemaViews: feed_item called! Ldr source=",ldr.source, "colname=",ldr.colname,"artfile=",artfile );
@@ -63,6 +68,9 @@ Item {
             console.log("CinemaViews: viewer not loaded, skipping" );
             return;
           }
+          if (!ldr.item.visible) {
+            return;
+          }          
           if (!artfile) {
             console.error("CinemaViews: warning, artefact file is emtpy.");
           }
