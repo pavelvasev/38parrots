@@ -9,3 +9,5 @@ PresetsManager 1.0 presets/PresetsManager.qml
 DeferredCalc 1.0 DeferredCalc.qml
 StateManager 1.0 StateManager.qml
 TextReload 1.0 TextReload.qml
+CsvParser 1.0 CsvParser.qml
+

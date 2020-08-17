@@ -8,6 +8,8 @@
    patchState -> update window hash
    а если кому надо распространить это по параметрам то пусть вызывает broadcastState
    
+   broadcastState -> сигнал sendStateToParams (все объекты ParamUrlHashing подписаны на него)
+   
    Неожиданно и забавно, что во время broadcast все параметры дружно присылают patchState обратно
    ну да ладно.
 */
@@ -130,7 +132,7 @@ Item {
   // занимается инициализацией состояния по данным из внешнего мира
   function initState() {
     if (!enabled) return;
-    console.log("^^^ initState");
+    //console.log("^^^ initState");
     
     // scene conf
     var rs = findRootScene( man );

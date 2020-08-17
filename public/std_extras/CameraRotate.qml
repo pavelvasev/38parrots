@@ -56,9 +56,13 @@ Shader {
   }
   
   Component.onDestruction: {
-    console.log("CameraRotate: removing manual control from orbit");
-    orbitControl.manualTheta = undefined;
-    orbitControl.update();
+    if (orbitControl) {
+      console.log("CameraRotate: removing manual control from orbit");
+//      debugger;
+      orbitControl.manualTheta = undefined;
+      orbitControl.update();
+    }
+//    debugger;
   }
 
 }

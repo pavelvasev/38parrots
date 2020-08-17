@@ -3,7 +3,6 @@ Shader {
   
   property var input_0: cliprange
 
-  
   property var output: shader1
   
   property alias p1: pp1
@@ -61,6 +60,6 @@ Shader {
             gl_Position.z = gl_Position.z *p1;
           }
         "
-  
+
 
 }

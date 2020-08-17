@@ -31,8 +31,26 @@ Column {
   property var input_1: []
   property var input_api: []
   property var input_api2: []
+
+  property var types:  input_1.concat( mytypes ).concat( input_api ).concat( input_api2 )
+/*
+  property var types: preobr( input_1.concat( mytypes ).concat( input_api ).concat( input_api2 ) )
   
-  property var types: input_1.concat( mytypes ).concat( input_api ).concat( input_api2 )
+  function preobr( arr ) {
+    var m = arr.map( function(v) {
+      url = v[1];
+      if (url.indexOf("?") >= 0)
+        url = url;
+      else
+        url = url + "?rand=";
+      v[1] = url + Math.random();
+      return v;
+    });
+    console.log("m=",m);
+    return m;
+    
+  }
+*/  
   
   property var mytypes: [
     ["Сдвиг","ShaderShift"],
@@ -62,7 +80,8 @@ Column {
     ["Имена осей","AxesNames", { tag: "other" }],
     ["Сохранить сцену","SaveScene", { tag: "other" }],
     ["Внешние добавки","ExternalExtras", { tag: "other" }],
-    ["Пользовательский","ShaderUser", { titl: "1" }]
+    ["Пользовательский","ShaderUser", { titl: "1" }],
+    ["Анимация","http://127.0.0.1:8080/public/std_extras/Animation.qml", { titl: "1" }]
   ]
 
   SimpleDialog {
@@ -154,7 +173,14 @@ Column {
     
     Loader {
       id: ldr
-      source: selectedshadermask[index] > 0 ? types[ index ][1] : undefined
+      source: {
+        var q = selectedshadermask[index] > 0 ? types[ index ][1] : undefined;
+        //+"?"+Math.random()
+        return q;
+      }
+      //property var s1: selectedshadermask[index] > 0 ? types[ index ][1]+"?"+Math.random() : undefined
+      //onSourceChanged: console.log("source=",source);
+
       timeoutMode:false // иначе оно моргает - шейдеры старые (=сдвинувшиеся) удаляются репитером
       
       property var scopeName: typeToScopeName(types[ index ]) // жили они не тужили в своем скопе
