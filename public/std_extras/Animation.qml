@@ -77,7 +77,9 @@ Column {
    
    function update_params_help()
    {
-      var q = findRootScene( main ).gatheredParams;
+      var a = findRootScene( main );
+      if (!a) return;
+      var q = a.gatheredParams;
       var s = "";
       q.forEach( function(v) {
         s = s + v.target.globalName + "\n";
@@ -112,11 +114,14 @@ Column {
   property var anim_name: ""
   property var anim_value: get_p_value( anim_name )
 
+  // соответствующие колонкам объекты параметров
   property var colParams: find_pars( parser.output_columns )
 
   //find_pars( parser.output_columns )
   function find_pars(cols) {
-    var q = findRootScene( main ).gatheredParams; //qmlEngine.rootElement.gatheredParams;
+    var a = findRootScene( main );
+    if (!a) return {};
+    var q = a.gatheredParams; //qmlEngine.rootElement.gatheredParams;
     //console.log("gp=",q);
     var f = function( name ) {
       for (var i=0; i<q.length; i++)

@@ -41,7 +41,7 @@ function (arr) {
 
 #### basepath.txt
 function (filepath) {
-  console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! basepath for ",filepath );
+  // console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! basepath for ",filepath );
   if (filepath.lastIndexOf)
     return filepath.slice( 0, filepath.lastIndexOf("/")+1 );
   return "";

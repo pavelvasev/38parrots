@@ -81,7 +81,8 @@ Column {
     ["Сохранить сцену","SaveScene", { tag: "other" }],
     ["Внешние добавки","ExternalExtras", { tag: "other" }],
     ["Пользовательский","ShaderUser", { titl: "1" }],
-    ["Анимация","http://127.0.0.1:8080/public/std_extras/Animation.qml", { titl: "1" }]
+    ["Анимация","Animation", { titl: "1" }]
+    //["Анимация","http://127.0.0.1:8080/public/std_extras/Animation.qml", { titl: "1" }]
   ]
 
   SimpleDialog {

@@ -84,18 +84,22 @@ Item {
     manual: true
   }
   
+  property bool inited: false
+  
   onPstateChanged: flowStateToHash()
   
   property var timeout_id
   function flowStateToHash() {
     if (!enabled) return;
+    if (!inited) return;
+    //if (qmlEngine.operationState);
     //console.log("flowStateToHash: flow...");
     if (timeout_id) {
       clearTimeout( timeout_id );
       timeout_id = undefined;
     }
     timeout_id = setTimeout( function() {
-      //console.log("flowStateToHash: writing to window hash...",pstate);
+      // console.log("flowStateToHash: writing to window hash...",pstate);
       var filtered = filterOut( pstate, stateFromFiles )
       //console.log( "filtered=",filtered );
       puh.overwriteParamsInHash( filtered );
@@ -169,14 +173,20 @@ Item {
   
   // вторая стадия
   function initState2() {
-    // window hash  
+    console.log("initState2: patching with params from hash" );
+    // window hash
     var hashobj = puh.read_hash_obj();
+    console.log("! puh.read_hash_obj() returned: ",hashobj);
+
     patchState( hashobj.params, "initState/windowhash" );
+    
+    inited = true; // теперь последующие patchState приведут к записи в location.hash
     
     console.log("^^^ initState finished",getState());
     console.log("^^^ broadcasting to params...");
     broadcastState();
     console.log("^^^ initState finally finished");  
+
   }
   
   Component.onCompleted: initState();
