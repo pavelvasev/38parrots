@@ -11,7 +11,7 @@
 Column {
   id: mainco
   
-  spacing: 2 // промежуток между различными гуи
+//  spacing: 2 // промежуток между различными гуи
   
 
   property var input: []
@@ -66,13 +66,15 @@ Column {
             onItemChanged: {
               // console.log("item arrived",item );
               // перетаскиваем к себе этот итем
-              if (!isdlg()) item.parent = co1;
+              if (isdlg()) {
+              }
+              else
+              {
+                item.parent = co1;
+              }
             }
           }
-          Text {
-            text: " "
-            height: 2
-          }
+
           
           Column {
             id: co1
@@ -80,6 +82,12 @@ Column {
             css.overflow: "hidden"
             //height: visible ? implicitHeight : 0
             //width: visible ? implicitWidth : 0
+            
+          Text {
+            text: " "
+            height: 2
+            // visible: co1.visible
+          }            
             
             ParamUrlHashing {
               name: scopeNameCalc.globalName
@@ -94,7 +102,23 @@ Column {
               target: btn.item
              // globalName, globalText
             }
+
+	    // отступ в конце открытого окна gui
+	    // если диалог - то отступ не надо
+            Text {
+              text: " "
+              height: 2
+              visible: ! btn.isdlg();
+            } 
           } // inner col
+          
+          // промежуток между различными gui
+          Text {
+            text: " "
+            height: 4
+          }
+          
+          
         } // outer col
 
       } // repeatr
