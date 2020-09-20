@@ -61,7 +61,7 @@ T,alfa,FILE_points_1, FILE_points_2
 
 Другие варианты запуска зависят от компьютера. Например, если есть менеджер пакетов npm, то:
 ```
-npm install http-server
+npm install -g http-server
 http-server --cors
 ```
 

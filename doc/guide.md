@@ -28,7 +28,7 @@ However in some cases it is more suitable to make a data available via web serve
 
 To start web server you have a lot of options, for example using nodejs:
 ```
-npm install http-server
+npm install -g http-server
 http-server --cors
 ```
 The `cors` option is needed because data is loaded via ajax, and currently 38parrots code loads from `viewlang.ru` domain,
