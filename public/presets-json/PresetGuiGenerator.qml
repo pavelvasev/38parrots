@@ -42,7 +42,8 @@ Item {
     Row {
       spacing: 3
       
-      property var cat: { var q = cats[catName]; if (!Array.isArray(q.variants)) q.variants=[]; return q; }
+      property var cat: { var q = cats[catName] || {}; if (!Array.isArray(q.variants)) q.variants=[]; return q; }
+      
       property var catName: catsKeys[index]
       Text {
         text: "<a href='javascript:;'>" + (cat.title || "menu"+catName) + "</a>"

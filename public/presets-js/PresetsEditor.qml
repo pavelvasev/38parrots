@@ -16,7 +16,6 @@ Item {
     visible: itm.visible
   }
   
-  
   // это собственно значение пресетов (сиречь нашего меню)
   property var value: []
   onValueChanged: console.log("PRESET EDITOR: value changed",value );
@@ -56,9 +55,11 @@ Item {
       for (p in v) {
         var neo = v[p];
         neo.id = p;
+        // двык вот, у нас отныне - меню это js-код. хахахаха.
         acc.push( neo )
       }
-      if (acc.length > 0 && itm.value.length == 0) itm.value=acc;
+      // if (acc.length > 0 && itm.value.length == 0) itm.value=acc;
+      
       // кстати отстойная ситуация - тут я не могу контролировать что делать если и menu и presets приехали...
       // только косвенно через itm.value.length
       // было бы лучше, видимо, как-то выяснять что произошла загрузка страницы, например, и проводить опрос значений самостоятельно
