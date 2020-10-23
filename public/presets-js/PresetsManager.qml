@@ -12,8 +12,11 @@ Item {
   }
 
   PresetGuiGenerator {
-    input: editor.value
+    input: editor.output
     visible: itm.visible
     stateManager: itm.stateManager
+    onMenuClicked: editor.editMenu( index )
   }
+  
+  property alias menu: editor.output
 }

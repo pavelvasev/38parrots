@@ -58,6 +58,7 @@ Scene {
     visible: scene_obj.isRoot
     stateManager: psm
   }
+  property alias menuManager: pm
   
   signal windowHashToParams();
   signal setParamValues( object params );

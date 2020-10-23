@@ -11,7 +11,7 @@ SimpleDialog {
   property var input: ""
 
   property var stateManager
-  title: "Состав меню "+(input.title || input.id)
+  title: "Редактор скрипта меню"; //+(input.title || input.id)
   onAfterOpen: showmenucode( edt.input )
 
   height: coco.height+40
@@ -93,18 +93,18 @@ SimpleDialog {
     obj = Object.assign( {}, obj )
     delete obj['menu'];
     delete obj['presets'];
+    delete obj['film-T'];
     
-    if (!Array.isArray(mnu.variants)) mnu.variants = [];
+    // if (!Array.isArray(mnu.variants)) mnu.variants = [];
     
     var objs = obj2str( obj );
-    var newcode = "menu.addVariant( \"Введите название\"," + objs + ");"
+    var newcode = "menu.add( \"Введите название\"," + objs + ");"
     
     tep.text = tep.text + "\n\n" + newcode;
   }
   
   function dosave()
   {
-    //var obj = str2obj( tep.text );
     edt.edited( tep.text );
   }
 

@@ -60,6 +60,7 @@ GroupBox {
       Param {
         text: param_names[index]
         values: find_possible_values( index, cp.selected_param_values, cp.dict )
+        // property var val: values[ value ]
         property var val: {
           // value может прийти приблизительный (т.е. дробный индекс)
           // мы пока не работаем с такими вариантами поэтому найдем четко наш вариант

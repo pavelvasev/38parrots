@@ -5,7 +5,7 @@ CinemaParams 1.0 CinemaParams.qml
 CinemaViews 1.0 CinemaViews.qml
 CinemaFiles 1.0 CinemaFiles.qml
 ExtrasManager 1.0 std_extras/ExtrasManager.qml
-PresetsManager 1.0 presets-json/PresetsManager.qml
+PresetsManager 1.0 presets-js/PresetsManager.qml
 DeferredCalc 1.0 DeferredCalc.qml
 StateManager 1.0 StateManager.qml
 TextReload 1.0 TextReload.qml

@@ -60,7 +60,16 @@ GroupBox {
       Param {
         text: param_names[index]
         values: find_possible_values( index, cp.selected_param_values, cp.dict )
-        property var val: values[ value ]
+        // property var val: values[ value ]
+        property var val: {
+          // value может прийти приблизительный (т.е. дробный индекс)
+          // мы пока не работаем с такими вариантами поэтому найдем четко наш вариант
+          var q = value;
+          if (!Number.isInteger( q )) q = Math.round( q );
+          if (q < 0) q = 0;
+          if (q >= values.length) q = values.length-1;
+          return values[ q ];
+        }
         //Component.onCompleted: console.log("cinema param completed",text );
         property bool animationPriority: true
         enableSliding: false

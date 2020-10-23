@@ -3,6 +3,8 @@ Item {
   id: gen
   property var input: []
   
+  signal menuClicked(int index);
+  
   property var stateManager
   
     // массив вида
@@ -42,9 +44,10 @@ Item {
     Row {
       spacing: 3
       
-      property var cat: { var q = cats[catName]; if (!Array.isArray(q.variants)) q.variants=[]; return q; }
+      property var cat: { var q = cats[catName] || {}; if (!Array.isArray(q.variants)) q.variants=[]; return q; }
       property var catName: catsKeys[index]
       Text {
+        visible: !iscombo
         text: "<a href='javascript:;'>" + (cat.title || "menu"+catName) + "</a>"
         y: 2
         id: txt
@@ -52,9 +55,7 @@ Item {
           var r = txt.dom;
           var link = r.children[0].children[0];
           link.onclick = function() {
-            editmenu.input = cat;
-            editmenu.catName = catName;
-            editmenu.open();
+            menuClicked( catName );
           }
         }
       }
@@ -70,8 +71,14 @@ Item {
       }
       ComboBox {
         visible: iscombo
-        model: ["..."].concat( cat.variants.map( function(v) { return v.title } ) )
+        model: [""+(cat.title||catName)+""].concat( cat.variants.map( function(v) { return v.title } ) ).concat("..настроить..");
         onCurrentIndexChanged: {
+          // кликнули "настроить"
+          if (currentIndex == model.length-1) {
+            currentIndex = 0;
+            menuClicked( catName );
+            return;
+          }
           if (currentIndex > 0) {
             perform( cat.variants[ currentIndex-1 ] )
             currentIndex = 0;

@@ -3,11 +3,13 @@ Column {
   
   property var tag: "right"
   
+  property var sceneMenu: menuManager.menu || []
+  
   ComboBoxParam {
     id: film_src
     text: "Выбор фильма"
     guid: "film-track"
-    values: (stateManager.pstate.menu || []).map( function(m,index) { return m ? m.title || m.id || index : "-" } )
+    values: sceneMenu.map( function(m,index) { return m ? m.title || m.id || index : "-" } )
   }
 
   Param {
@@ -23,6 +25,13 @@ Column {
   }
   
   ///////////////////////////////////////////////////
+  // Проблема - у нас состояния содержат минимальную информацию (это удобно пользователю я считаю)
+  // но интерполятору нужна полная информация - т.е. вобоих состояниях параметр должен быть указан
+  // идея - пройти по списку состояний и вычислить информацию там, где ее нет
+  // а) пройти от начала мультика к концу, и если видим что в стадии1 нет того что есть в стадии2 - попытаться
+  //    найти от начала мультика (искать ближайшие)
+  // б) пройти также от начала мультика к концу, и если видим что в стадии2 нет того что есть в стадии1 - 
+  //    наверное тупо взять из стадии 1 
   
   // наполняет state1 значениями из стека состояний,
   // которые представлены в state2 но не в state1
@@ -45,8 +54,8 @@ Column {
     //return state1;
   }
   
-  // выравнивает мультик заполняя стадии недостающими параметрами
-  function fix_states( state_chain ) {
+  // проход (а) - добавляем в первое состояние инфу из предыдущих к ней
+  function fix_states_1( state_chain ) {
     var arr = [stateManager.pstate];
 
     var chain = JSON.parse( JSON.stringify( state_chain ) );
@@ -58,6 +67,22 @@ Column {
     }
     return chain;
   }
+  
+  // проход (б) - добавляем во второе состояние (отсутствующую инфу) из первого
+  function fix_states_2( state_chain ) {
+    var arr = [stateManager.pstate];
+
+    var chain = JSON.parse( JSON.stringify( state_chain ) );
+    
+    for (var i=0; i<chain.length-1; i++) {
+       fix_state( chain[i+1], chain[i], [chain[i]] );
+    }
+    return chain;
+  }
+  
+  function fix_states( state_chain ) {
+    return fix_states_2( fix_states_1( state_chain ) );
+  }  
   
   // интерполяция 1го значения с рекурсией по массивам и хешам
   function interp1( v1, v2, r )
@@ -129,7 +154,7 @@ Column {
   /////////////////////////
   //property var mult: states2mult( [ as1(), as2(), as3(), as4() ] )
   
-  property var stateMenu: stateManager.pstate.menu[ film_src.value ]
+  property var stateMenu: sceneMenu[ film_src.value ] || {}
   property var selectedMenu: {}
 
   onStateMenuChanged: {
@@ -142,7 +167,10 @@ Column {
   
   property var mult: []
   
+  // здесь mult это как раз серия состояний (а не там четверки всякие)
   function computeMult( selectedMenu, baseState ) {
+    if (!selectedMenu) return [];
+    if (!selectedMenu.variants) return [];
     console.log("film_src.value=",film_src.value );
     var states = selectedMenu.variants.map( function(v) { return v.params; } );
     console.log( "see states for mult:",states.toString() );
@@ -163,6 +191,7 @@ Column {
   ///////////////////////////////////////////////////
   
   property var stateManager: qmlEngine.rootObject.stateManager
+  property var menuManager: qmlEngine.rootObject.menuManager
   
   // у нас 2 способа получить параметры.. - у параметра и через state (в state пишут псевдо-параметры типа камеры)
   function getParam( name ) {
