@@ -211,11 +211,16 @@ Column {
   
   // todo один setTimeout при нескольких вызовах
 
+  property var sptid
   function setParams(hash) {
     console.log("mult patch",hash );
     stateManager.patchState( hash );
     // сразу же нельзя ибо там еще в эти параметры основной не пропатчился параметр анимации
-    setTimeout( function() {
+    if (sptid) {
+      clearTimeout( sptid );
+    }
+    sptid = setTimeout( function() {
+      sptid=undefined;
       stateManager.broadcastState()
     }, 10 );
   }

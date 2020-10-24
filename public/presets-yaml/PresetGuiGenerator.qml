@@ -71,9 +71,13 @@ Item {
       }
       ComboBox {
         visible: iscombo
-        model: [""+(cat.title||catName)+""].concat( cat.variants.map( function(v) { return v.title } ) ).concat("..настроить..");
+        model: {
+          if (typeof(cat) != "object") return [];
+          return [""+(cat.title||catName)+""].concat( cat.variants.map( function(v) { return v.title } ) ).concat("..настроить..");
+        }
         onCurrentIndexChanged: {
           // кликнули "настроить"
+          if (model.length == 0) return;
           if (currentIndex == model.length-1) {
             currentIndex = 0;
             menuClicked( catName );
@@ -101,5 +105,5 @@ Item {
     stateManager.broadcastState();
     return;
   }
-  
+
 }

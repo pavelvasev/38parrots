@@ -138,7 +138,7 @@ Item {
     if (!enabled) return;
     //console.log("^^^ initState");
     
-    // scene conf
+    // scene conf variable
     var rs = findRootScene( man );
     if (rs && rs.sceneconf) {
       var obj = JSON.parse( rs.sceneconf );
@@ -171,7 +171,7 @@ Item {
       initState2();
   }
   
-  // вторая стадия
+  // вторая стадия - conf from hash in url
   function initState2() {
     console.log("initState2: patching with params from hash" );
     // window hash
