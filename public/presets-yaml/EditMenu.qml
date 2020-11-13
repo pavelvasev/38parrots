@@ -114,6 +114,7 @@ SimpleDialog {
     obj = Object.assign( {}, obj )
     delete obj['menu'];
     delete obj['presets'];
+    delete obj['afile']; // пока принудительно добавим и это, хак
     
     // убрать то что касается анимационности
     var objf = {};
@@ -151,6 +152,7 @@ SimpleDialog {
     delete obj['menu'];
     delete obj['presets'];
     //delete obj['film-T'];
+    delete obj['afile']; // пока принудительно добавим и это, хак    
     
     // убрать то что касается анимационности
     var objf = {};
