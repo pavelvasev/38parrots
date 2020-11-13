@@ -177,11 +177,14 @@ SimpleDialog {
       for (prop in prev) {
         if (arreq(prev[prop],obj[prop])) continue;
         if (prev[prop] == obj[prop]) continue;
+        if (prop.indexOf("Animation2") >= 0) continue;
         //console.log("value of prop",prop,"not equal:",prev[prop],obj[prop]);
         obj2[prop] = obj[prop];
       }
       obj = obj2;
     }
+    
+    console.log("add2 computed params: ",obj );
 
     obj = { title: "Введите название", params: obj }
     mnu.variants.push( obj );

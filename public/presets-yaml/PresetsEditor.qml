@@ -110,8 +110,13 @@ Item {
       // может можно сказать setParam( "menu", getParam("menu")[catName]=obj )?
       console.log("saving menu content to state. name=",catName,"value=",obj);
       
-      itm.value[ catName ] = obj;
-      itm.valueChanged();
+      // такой вот простой способ удалять пункты - стереть его текст... ххх
+      if (typeof(obj) == "undefined")
+        itm.value.splice( parseInt(catName),1 );
+      else {
+        itm.value[ catName ] = obj;
+      }
+      itm.valueChanged();     
       // ну вроде бы а как еще то?
 
 //      stateManager.pstate.menu[catName] = obj;
