@@ -12,7 +12,7 @@ Item {
     // где каждый вариант это: {значения-параметров}
   
   onInputChanged: {
-    console.log("PresetGuiGenerator input changed:",input );
+    //console.log("PresetGuiGenerator input changed:",input );
     setTimeout( function() {
       findRootScene( gen ).refineSelf();
     },1 );

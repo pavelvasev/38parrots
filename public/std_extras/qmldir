@@ -19,3 +19,5 @@ ExternalExtras 1.0 ExternalExtras.qml
 GuiBox 1.0 GuiBox.qml
 Animation 1.0 Animation.qml
 Animation2 1.0 Animation2.qml
+Animation2Mult 1.0 Animation2Mult.qml
+UserScripts 1.0 UserScripts.qml

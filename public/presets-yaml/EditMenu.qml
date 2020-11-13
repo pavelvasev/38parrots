@@ -20,12 +20,7 @@ SimpleDialog {
   Column {
        id: coco
        width: 700 //parent.width
-       
-       Button {
-           text: "Добавить текущее состояние в конец списка"
-           width: 450
-           onClicked: doadd()
-         }
+       spacing: 5
        
        Text {
          text: " "
@@ -37,22 +32,49 @@ SimpleDialog {
          width: parent.width
        }
        
+       Row {
+         spacing: 3
+       
+
+       
+       Button {
+           text: "Добавить&nbsp;состояние&nbsp;в&nbsp;конец&nbsp;списка"
+//           width: 400
+           onClicked: doadd()
+       }
+       Button {
+           text: "Добавить&nbsp;только&nbsp;отличия"
+//           width: 100
+           onClicked: doadd2()
+       }       
+       }
+       
        Text {
          text: " "
-       }       
+       }
+
        
        Row {
          spacing: 3
          
          Button {
            text: "Сохранить"
-           onClicked: dosave()
+//           onClicked: dosave();
+//           text: "Сохранить&nbsp;и&nbsp;закрыть"
+           onClicked: { dosave(); edt.close(); }
          }
          
          Text {
            id: svstatus
            text: "status"
          }
+         
+         Button {
+           text: "Отмена"
+           onClicked: edt.close();
+//           text: "Выйти&nbsp;не&nbsp;сохраняя"
+//           onClicked: edt.close();
+         }         
       }
        
     }
@@ -92,7 +114,16 @@ SimpleDialog {
     obj = Object.assign( {}, obj )
     delete obj['menu'];
     delete obj['presets'];
-    delete obj['film-T'];
+    
+    // убрать то что касается анимационности
+    var objf = {};
+    for (var p in obj) {
+      if (p.indexOf("Animation2") >= 0) continue;
+      objf[p] = obj[p];
+    }
+    obj = objf;
+    
+    //delete obj['film-T'];
 
     if (!Array.isArray(mnu.variants)) mnu.variants = [];
 
@@ -100,6 +131,60 @@ SimpleDialog {
     mnu.variants.push( obj );
     showmenucode( mnu )
   }
+  
+  function arreq( a1, a2 ) {
+    if (Array.isArray(a1) && Array.isArray(a2)) {
+      var s1=a1.toString();
+      var s2=a2.toString();
+      // debugger;
+      if (a1.toString() == a2.toString()) return true;
+    } 
+    return false;
+  }
+  
+  // добавляет текущее состояние к коду меню - но только отличия
+  function doadd2() {
+    var mnu = str2obj( tep.text );
+
+    var obj = stateManager.getState();
+    obj = Object.assign( {}, obj )
+    delete obj['menu'];
+    delete obj['presets'];
+    //delete obj['film-T'];
+    
+    // убрать то что касается анимационности
+    var objf = {};
+    for (var p in obj) {
+      if (p.indexOf("Animation2") >= 0) continue;
+      objf[p] = obj[p];
+    }
+    obj = objf;
+
+    if (!Array.isArray(mnu.variants)) mnu.variants = [];
+    
+    if (mnu.variants.length > 0) {
+      var prev = {};
+      // вообще понятие "отличие" это я вкладываю в него то что мне удобно )))
+      // проехали сверху вниз, накопили - и будем искать только разницу с тем что было
+      for (var i=0; i<mnu.variants.length; i++) {
+        Object.assign( prev, mnu.variants[i].params );
+      }
+      //var prev = mnu.variants[ mnu.variants.length-1 ].params;
+      var obj2 = {};
+      console.log("checking with prev", prev);
+      for (prop in prev) {
+        if (arreq(prev[prop],obj[prop])) continue;
+        if (prev[prop] == obj[prop]) continue;
+        //console.log("value of prop",prop,"not equal:",prev[prop],obj[prop]);
+        obj2[prop] = obj[prop];
+      }
+      obj = obj2;
+    }
+
+    obj = { title: "Введите название", params: obj }
+    mnu.variants.push( obj );
+    showmenucode( mnu )
+  }  
   
   function dosave()
   {

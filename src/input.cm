@@ -3,6 +3,11 @@
   <property_set name="tag">"left"</property_set>
 </object>
 
+# #### load_module
+# <object type="LoadModule">
+#   <property_set name="src"> <resolved>"init.js"</resolved> </property_set>
+# </object>
+
 #### V
 <parse_csv>
   <load_file reload="1">
@@ -21,6 +26,7 @@
 #### params
 <group>
   <computing_mode>
+<!--  <load_module> "init.js" </load_module> -->
   <param name="afile" cinemafiles="1">
     <!-- <resolved>'./examples/1-running-point.cdb/data.csv'</resolved> -->
   </param>

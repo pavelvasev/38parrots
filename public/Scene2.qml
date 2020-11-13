@@ -53,6 +53,13 @@ Scene {
   }
 */  
 
+/*
+  ScriptManager {
+    visible: scene_obj.isRoot
+    stateManager: psm
+  }
+*/
+
   PresetsManager {
     id: pm
     visible: scene_obj.isRoot
@@ -71,4 +78,6 @@ Scene {
   
   ////
   property var textLoaderIterations: 0
+  
+
 }

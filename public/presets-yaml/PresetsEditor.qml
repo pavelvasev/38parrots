@@ -28,7 +28,7 @@ Item {
 
   Button {
     property var tag: "top"
-    text: "Добавить меню"
+    text: "Добавить_меню"
     onClicked: {
       itm.value.push( { "title" : "Новое меню", "id":"new-menu", "gui": "combo" } );
       // var code = "var menu=createMenu( \"Новое\" );";
