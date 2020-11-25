@@ -1,0 +1,13 @@
+############## setup
+<a38link/>
+
+############## a38link.txt
+function() {
+  var a=jQuery("#viewlanglink a") [0];
+  if (a) {
+    a.href="http://38parrots.viewlang.ru";
+    a.text="38parrots";
+  }
+  return 0;
+}
+
