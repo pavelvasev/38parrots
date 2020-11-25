@@ -78,7 +78,10 @@ Given with specified data on input, 38parrots will visualize it as on picture be
 * [Руководство](doc/guide.ru.md)
 * [Перечень 3d артефактов](doc/3d_artefacts.ru.md)
 
+
 # Credits
+
+The presented approach for 3d scene description is developed in Computer visualization lab of N.N. Krasovskii Institute of Russian Academy of Sciences led by scientific supervision of [V. L. Averbukh](https://www.researchgate.net/profile/Vladimir_Averbukh) in 2020. www.cv.imm.uran.ru
 
 2020 (c) Pavel Vasev
 
