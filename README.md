@@ -7,12 +7,12 @@ interactively control a scene and even generate animation.
 
 ![](doc/udav-iz-multfilma-38-popugaev.jpg)
 
-# Run
+# Run online
 
-[Open 38parrots with tutorial scenes](http://viewlang.ru/viewlang/code/scene.html?s=https://github.com/pavelvasev/38parrots/blob/master/result.vl&conf=https://github.com/pavelvasev/38parrots/blob/master/examples/_tutorial/38conf.json)
+[Run 38parrots with DEMO scenes](http://viewlang.ru/viewlang/code/scene.html?s=https://github.com/pavelvasev/38parrots/blob/master/result.vl&conf=https://github.com/pavelvasev/38parrots/blob/master/examples/_tutorial/38conf.json)
 
 Other option:
-[38parrots clean run](http://viewlang.ru/viewlang/code/scene.html?s=https://github.com/pavelvasev/38parrots/blob/master/result.vl)
+[Run 38parrots](http://viewlang.ru/viewlang/code/scene.html?s=https://github.com/pavelvasev/38parrots/blob/master/result.vl)
 
 # Visualizations
 
