@@ -1,5 +1,7 @@
 # 38parrots
 
+> Warning. This is old stable version. The new version is developed: https://github.com/viewzavr/vr-cinema
+
 Web-based 3d visualization tool using CinemaScience format.
 
 It allows you to easily explain to computer how to visualize your data in 3d, 
